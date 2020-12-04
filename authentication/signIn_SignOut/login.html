@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<h2>login</h2>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Log In as a Student</h2>
+    <form action="studentlogin.php" method="POST">
+        <label><b>Enter your mail</b></label><br>
+        <input type="text" name="smail"><br><br>
+
+        <label><b>Enter your password</b></label><br>
+        <input type="password" name="spwd"><br><br>
+
+        <button type="submit">Log in</button>
+        <p>Not registered?<a href="register.html">Register</a></p>
+    </form>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Log In as a Teacher</h2>
+    <form action="teacherlogin.php" method="POST">
+        <label><b>Enter your mail</b></label><br>
+        <input type="text" name="tmail"><br><br>
+
+        <label><b>Enter your password</b></label><br>
+        <input type="password" name="tpwd"><br><br>
+
+        <button type="submit" value="submit">Log in</button>
+        <p>Not registered?<a href="register.html">Register</a></p>
+    </form>
+  </div>
+</div>
+
+</body>
+
+</html>
