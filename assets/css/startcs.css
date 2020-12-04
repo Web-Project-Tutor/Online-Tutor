@@ -23,12 +23,17 @@ ul {
   }
   
   .active {
-    background-color: #4CAF50;
+    background-color: burlywood;
   } 
 
 header{
     font-size: 1rem;
     color:burlywood ;
+}
+
+/* topNav styling */
+.topnav{
+  overflow: hidden;
 }
 
 /* body{
