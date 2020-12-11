@@ -1,38 +1,61 @@
+<?php
+
+mysql_connect("127.0.0.1", "root", "") or die("Could not connect");
+mysql_select_db("userreg") or die("could not find databse");
+$output='';
+
+
+if(isset($_POST['search']))
+{
+    $searchq=$_POST['search'];
+    $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
+
+    $query=mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
+    $count=mysql_num_rows($query);
+    if($count==0){
+        $output='there was no search result';
+
+    }
+    else{
+        while($row=mysql_fetch_array($query)){
+            
+            $fname=$row['sfname'];
+            $lname=$row['slname'];
+            $mail=$row['semailid'];
+            $phone=$row['sphone'];
+            $address=$row['saddress'];
+            
+
+            $output .='<div> '.$fname.' '.$lname.' '.$mail.' '.$phone.' '.$address.'</div>';
+        }
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Tutor</title>
-    <link rel="stylesheet" href="assets/css/startcs.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<html>
+    <head>
+        <title>PHP HTML TABLE DATA SEARCH</title>
+        <style>
+            table,tr,th,td
+            {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <form action="#findstudent.php" method="post">
+            <!-- <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
+            <input type="submit" name="search" value="Filter"><br><br> -->
+            <input type="text" name="search" placeholder="Searching elements"/>
+            <input type="submit"  value=">>"/>
 
-    
 
-    <!-- =====BOX ICONS===== -->
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-</head>
-  <body>
-        <header><h1><center><i> Online Tutuor</i> </center></h1></header>
-        <div class="topnav">
-            <ul>
-                <li><a href="index.html" class='active'>Home</a></li>
-                <li><a href="register.html" >Registration</a></li>
-                <li><a href="login.html">Log In</a></li>
-                <li><a href="logout.php">Log out</a></li>
-                <li><a href="findStudent.html" class="active">Find Student</a></li>
-                <li><a href="findTeacher.html">Find Tutor</a></li>
-                <li><a href="notification.html">Notification</a></li>
-                <li><a href="about.html" >About</a></li>
-            </ul>
-        </div>
-        <!-- <button class="FindStudent">Find Student</button>
-        <button class="FindTeacher">Find Teacher</button> -->
-       
-        <!-- footer -->
-      
-      <table border="1">
+            <table border="1">
     <tr>
         <th>FirstName</th>
         <th>SecondName</th>
@@ -48,9 +71,7 @@ mysqli_select_db($con,'userreg');
 $selectquery="select * from student";
 $query=mysqli_query($con,$selectquery);
 $num=mysqli_num_rows($query);
-
-
-
+                
 while($res=mysqli_fetch_array($query)){
     echo "<tr>";
     echo  "<td>";
@@ -77,16 +98,9 @@ while($res=mysqli_fetch_array($query)){
     echo "<br>";
 }
 ?>
-</table>
-        <footer class ="footer">
-            <p class="footer__title">Online Tutor<br>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p>&#169; 2020 copyright all right reserved</p>
-          </footer>
-     </body>
-
+</table>     
+        </form>
+        <?php print("$output");?>
+        
+    </body>
 </html>
