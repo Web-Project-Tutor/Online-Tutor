@@ -1,8 +1,19 @@
 <?php
 
 session_start();
-$con=mysqli_connect('127.0.0.1','root','');
+$con=mysqli_connect('localhost','root','');
 mysqli_select_db($con,'userreg');
+
+if(!$con){
+    echo 'Not connected to server';
+}
+
+if(!mysqli_select_db($con,'userreg')){
+    echo 'Database not selected';
+}
+
+// echo $con;
+
 
 $fname=$_POST['susername1'];
 $lname=$_POST['susername2'];
@@ -25,6 +36,8 @@ $s="insert into  student (sfname,slname,semailid,sphone,saddress,spass) values (
 //     mysqli_query($con,$reg);
 //     echo "Registration successful";
 // }
+
+// echo $s ;
 if(!mysqli_query($con,$s))
     {
         echo 'not inserted';
