@@ -12,6 +12,7 @@ if(!mysqli_select_db($con,'userreg')){
     echo 'Database not selected';
 }
 
+
 $fname=$_POST['tusername1'];
 $lname=$_POST['tusername2'];
 $mail=$_POST['tmail'];
@@ -19,7 +20,7 @@ $phone=$_POST['tphone'];
 $address=$_POST['taddress'];
 $pass=$_POST['tpwd'];
 
-$s="insert into  teacher (tfname,tlname,tmail,tphone,taddress,tpass) values ('$fname','$lname','$mail','$phone','$address','$pass')";
+$s="insert into  teacher(tfname,tlname,tmail,tphone,taddress,tpass, profile) values ('$fname','$lname','$mail','$phone','$address','$pass','Teacher')";
 
 if(!mysqli_query($con,$s))
     {

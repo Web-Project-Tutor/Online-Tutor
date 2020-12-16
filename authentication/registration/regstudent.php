@@ -24,7 +24,7 @@ $pass=$_POST['spwd'];
 
 // $s="select * from student where sfname='$fname' && slname='$lname' && semailid='$mail' sphone='$phone'&& saddress='$address' && spass='$pass'";
 
-$s="insert into  student (sfname,slname,semailid,sphone,saddress,spass) values ('$fname','$lname','$mail','$phone','$address','$pass')";
+$s="insert into  student (sfname,slname,semailid,sphone,saddress,spass, profile) values ('$fname','$lname','$mail','$phone','$address','$pass','Student')";
 // $result=mysqli_query($con,$s);
 // $num=mysqli_num_rows($result);
 

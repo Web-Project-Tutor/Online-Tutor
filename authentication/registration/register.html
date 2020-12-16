@@ -1,4 +1,230 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Online Tutor</title>
+        <meta charset ="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <style>
+            .navbar {
+                min-height: 50px;
+            }
+
+            .navbar-brand {
+                padding: 0 15px;
+                height: 50px;
+                line-height: 80px;
+            }
+
+            .navbar-toggle {
+                /* (80px - button height 34px) / 2 = 23px */
+                margin-top: 23px;
+                padding: 9px 10px !important;
+            }
+
+        </style>
+        <link rel="stylesheet" href="../../assets/css/footer.css">
+        <link rel="stylesheet" href="../../assets/css/registerForm.css">
+         <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        
+    </head>
+    
+    <!-- body -->
+    <body>
+
+        <!-- header -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="max-width:50px; margin-top: 1px;" class="img-circle" src="../../assets/img/logo2.jpg">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavBar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="#">Student</a></li>
+                        <li><a href="#">Faculty</a></li>
+                        <li><a href="../../about.html">About</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                        <li><a href="../../authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Form  -->
+        <div class="wrapper">
+            <div class="container">
+                <div class="Student">Student</div>
+                <div class="Teacher">Teacher</div>
+
+
+                <div class="reg-student">
+                    <form action="regstudent.php" method="post">
+                        <h2>Register as a Student</h2>
+                                    <hr>
+                
+                                    <label><b>Enter your First Name</b></label><br>
+                                    <input type="text" name="susername1"><br><br>
+                                  
+                                    <label><b>Enter your Surname</b></label><br>
+                                    <input type="text" name="susername2"><br><br>
+                                    
+                                    <label><b>Enter your email ID</b></label><br>
+                                    <input type="text" name="smail"><br><br>
+                                    
+                                    <label><b>Enter your Phone Number</b></label><br>
+                                    <input type="text" name="sphone"><br><br>
+                                  
+                                    <label><b>Enter your Address</b></label><br>
+                                    <input type="text" name="saddress"><br><br>
+                                  
+                                    <label for="pwd"><b>Password</b></label></label><br>
+                                    <input type="password" name="spwd"><br><br>
+                                  
+                                    <button type="submit" value="Insert">Register</button>
+                        <p>Already registered?<a href="login.html">Log In</a></p>
+                    </form>
+                </div>
+
+                <div class="reg-teacher">
+                    <form action="regteacher.php" method="post">
+                        <h2>Register as a Teacher</h2>
+                                    <hr>
+                
+                                    <label><b>Enter your First Name</b></label><br>
+                                    <input type="text" name="tusername1"><br><br>
+                
+                                    <label><b>Enter your Surname</b></label><br>
+                                    <input type="text" name="tusername2"><br><br>
+                
+                                    <label><b>Enter your email ID</b></label><br>
+                                    <input type="text" name="tmail"><br><br>
+                
+                                    <label><b>Enter your Phone Number</b></label><br>
+                                    <input type="text" name="tphone"><br><br>
+                                    
+                                    <label><b>Enter your Address</b></label><br>
+                                    <input type="text" name="taddress"><br><br>
+                                    
+                                    
+                                    <label for="pwd"><b>Password</b></label><br>
+                                    <input type="password" name="tpwd"><br><br>
+                                    
+                                    <button type="submit">Register</button>
+                        <p>Already registered?<a href="login.html">Log In</a></p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- footer -->
+        <div class ="footer">
+            <p class="footer__title">Online Tutor<br>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+            </div>
+            <p>&#169; 2020 copyright all right reserved</p>
+        </div>
+
+
+
+        <script>
+            $(".reg-teacher").hide();
+            $(".Teacher").css("background", "none");
+
+            $(".Teacher").click(function(){
+            $(".reg-student").hide();
+            $(".reg-teacher").show();
+            $(".Student").css("background", "none");
+            $(".Teacher").css("background", "#fff");
+            });
+
+            $(".Student").click(function(){
+            $(".reg-student").show();
+            $(".reg-teacher").hide();
+            $(".Teacher").css("background", "none");
+            $(".Student").css("background", "#fff");
+            });
+
+            // $(".btn").click(function(){
+            // $(".input").val("");
+            // });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Previous -->
+
+<!-- 
+
+
+    
+
+
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Register</title>
@@ -89,3 +315,10 @@
 </body>
 
 </html>
+
+ -->
+
+
+
+
+
