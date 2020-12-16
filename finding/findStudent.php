@@ -51,9 +51,19 @@ if(isset($_POST['search']))
         <form action="#findstudent.php" method="post">
             <!-- <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
             <input type="submit" name="search" value="Filter"><br><br> -->
-            <a href="findStudent.php">back</a>
+            <!-- <input type="button" value="back"/> -->
+            <a href="findstudent.php">refresh</a>
             <input type="text" name="search" placeholder="Searching elements"/>
             <input type="submit"  value=">>"/>
+            <!-- <input type="button" name="btn" value="refresh" onclick="return RefreshWindow();"/>
+            
+
+            <script>
+            function RefreshWindow()
+            {
+                window.location.reload(true);
+            }
+            </script> -->
 
 
             <table border="1">
@@ -72,7 +82,7 @@ mysqli_select_db($con,'userreg');
 $selectquery="select * from student";
 $query=mysqli_query($con,$selectquery);
 $num=mysqli_num_rows($query);
-                
+
 while($res=mysqli_fetch_array($query)){
     echo "<tr>";
     echo  "<td>";
@@ -99,9 +109,29 @@ while($res=mysqli_fetch_array($query)){
     echo "<br>";
 }
 ?>
-</table>     
+</table>        
         </form>
-        <?php print("$output");?>
+        <?php print("$output");
+       
+    // if(isset($_POST['btn'])){
+    // //     echo '<script type="text/javascript">',
+    // //    'RefreshWindow();',
+    // //    '</script>';
+    // //header("refresh:2;url=findstudent.php");
+
+    //     //   set_Logout();
+    //     //   $_POST = array();
+    //     //   //tests
+    //     //   $page = $_SERVER['PHP_SELF'];
+    //     //   echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
+
+    //     header('Location: '.$_SERVER['PHP_SELF']);
+    //     Exit(); //optional
+
+    // // $page = $_SERVER['PHP_SELF'];
+    // // print "<a href=\"$page\">Reload this page</a>";   
+    // }
+        ?>
         
     </body>
 </html>
