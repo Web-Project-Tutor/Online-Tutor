@@ -51,6 +51,7 @@ if(isset($_POST['search']))
         <form action="#findstudent.php" method="post">
             <!-- <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
             <input type="submit" name="search" value="Filter"><br><br> -->
+            <a href="findStudent.php">back</a>
             <input type="text" name="search" placeholder="Searching elements"/>
             <input type="submit"  value=">>"/>
 
