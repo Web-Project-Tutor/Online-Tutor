@@ -28,7 +28,9 @@ if(!mysqli_query($con,$s))
     }
     else
     {
-        echo 'inserted';
+        // echo 'inserted';
+        header("Location: http://localhost/tutor/Online-Tutor/home.html");
+        exit();
     }
 header("refresh:2; url=register.html");
 

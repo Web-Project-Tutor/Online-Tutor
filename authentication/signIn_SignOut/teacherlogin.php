@@ -36,9 +36,10 @@ $password=$_POST['tpwd'];
 	if($row>0)
 	{
 	$_SESSION['tmail']=$email;
-	
+    
+    header("location:http://localhost/tutor/Online-Tutor/home.html");
     //header("location:admin.php");
-    header("refresh:1; url=home.html");
+    // header("refresh:1; url=home.html");
     exit();
     }
     else{

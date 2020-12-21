@@ -16,8 +16,8 @@ $password=$_POST['spwd'];
 	{
 	$_SESSION['smail']=$email;
 	
-    //header("location:admin.php");
-    header("refresh:1; url=home.html");
+    header("location:http://localhost/tutor/Online-Tutor/home.html");
+    // header("refresh:1; url=index.html");
     exit();
     }
     else{

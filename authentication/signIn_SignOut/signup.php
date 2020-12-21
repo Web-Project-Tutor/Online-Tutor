@@ -22,5 +22,5 @@
     {
         echo 'inserted';
     }
-header("refresh:2; url=try.html");
+header("refresh:2; url=login.html");
 ?>
