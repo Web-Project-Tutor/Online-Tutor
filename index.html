@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <style>
-            .navbar {
+            /* .navbar {
                 min-height: 50px;
             }
 
@@ -18,11 +19,43 @@
 
             .navbar-toggle {
                 /* (80px - button height 34px) / 2 = 23px */
-                margin-top: 23px;
+                /* margin-top: 23px;
                 padding: 9px 10px !important;
+            } */ 
+
+            .imgCenter{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 800px;
+                height: 400px;
+            }
+
+            #conDetail{
+                margin-top: 50px;                
+                background-color:rgb(232,232,232)  ; 
+            
+
+            }
+
+            #foot{
+                margin-top: 50px;                
+                background-color:rgb(0, 0, 0)  ; 
+                color: #fff;
+                text-align: center;
+                font-weight: var(--font-semi);
+                height: 100px;
+
+            
+
+            }
+            #photoDetail{
+                margin-top: 50px;  
+
             }
 
         </style>
+        <link rel="stylesheet" href="assets/css/navBarStyle.css">
         <link rel="stylesheet" href="assets/css/footer.css">
          <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -34,7 +67,6 @@
     </head>
 
     <body>
-        <!-- Menu Bar -->
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -50,9 +82,9 @@
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
-                        <!-- <li><a href="#">Student</a></li> -->
+                        <li><a href="#">Student</a></li>
                         <li><a href="#">Faculty</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li ><a href="about.html">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -62,12 +94,204 @@
             </div>
         </nav>
 
-     
-        <!-- Content -->
+        <!-- content od about -->
+            <!-- 1 image slide -->
+
+            <div>
+                <img src="assets/img/slider/img01.jpeg" class="imgCenter"> 
+            </div>
+
+            <br><br>
+            
+            <!-- 2  photo and detail -->
+            <div class="container" id="aboutContainer">
+                <div class="row">
+                    <div class="col-sm-6"> 
+                        <h3>Education is not a privilege,It is your Right !</h3>
+                        <ul>
+                            <li>Home Tuitions</li>
+                            <li>Online Tuitions</li>
+                            <li>Exam Preparation / Mock Tests</li>
+                        </ul> 
+                    </div>
+                    <div clsss ="col-sm-6">
+                        <img src="assets/img/OnlineTeach1.jpg" alt="About Picture" width="425px" height="250px">
+    
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- 3 subject details -->
+
+            <div id = "conDetail">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-md-4 col-sm">
+                            <h2>By Classes</h2>
+                            <ul>
+                                <li>Class 1-8</li>
+                                <li>Class 9-10</li>
+                                <li>Class 11-12</li>
+                                <li>Diploma</li>
+                                <li>B.Sc</li>
+                                <li>BA</li>
+                                <li>B.Com</li>
+                                <li>Engineering</li>
+                                <li>MBA</li>
+                            </ul>
+                        </div>
+    
+                        <div class="col-md-4 col-sm">
+                            <h2>By Subject</h2>
+                            <ul>
+                                <li>Maths Tutor</li>
+                                <li>Physics Tutor</li>
+                                <li>Chemistry Tutor</li>
+                                <li>English Tutor</li>
+                                <li>Computer Tutor</li>
+                                <li>Biology Tutor</li>
+                                <li>Accountancy Tutor</li>
+                                <li>Economics Tutor</li>
+                                <li>Geography Tutor</li>
+                            </ul>
+                        </div>
+    
+                        <div class="col-md-4 col-sm">
+                            <h2>By Exam</h2>
+                            <ul>
+                                <li>IIT JAM Tutor</li>
+                                <li>IIT JEE Tutor</li>
+                                <li>AIEEE Tutor</li>
+                                <li>AIIMS Tutor</li>
+                                <li>CAT Tutor</li>
+                                <li>GATE Tutor</li>
+                                <li>GRE Tutor</li>
+                                <li>GMAT Tutor</li>
+                                <li>SSC Tutor</li>
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+       
+            <!-- 4 find tutor -->
+
+            <br><br>
+
+
+            <div>
+               <div class="container">
+
+                   <div class="row"> 
+                       <div class="col-md-2">
+
+                       </div>
+                        <div class="col-md-8">
+                            <centrr><h1>Find Tutors From Your State</h1></centre>
+                            
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                         <div class="col-md-8">
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Looking for a Tutor from your own state?
+                                <br>Just click on the name of your state from the list below and meet all them at one place.
+                            
+                            </h4>
+                             
+                             <br><br>
+                         </div>
+                    </div>
+               </div>
+
+               <br><br><br>
+                <div class="container">
+                    <div class="row">
+                        
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+
+
+                        
+                    </div>
+
+                </div>
+            </div>
+
+
 
 
         <!-- footer -->
-        <footer class ="footer">
+        <div id ="foot">
             <p class="footer__title">Online Tutor<br>
             <div class="footer__social">
                 <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
@@ -75,7 +299,7 @@
                 <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
             </div>
             <p>&#169; 2020 copyright all right reserved</p>
-        </footer>
+        </div>
     </body>
 </html>
 
@@ -103,64 +327,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Previous home and personal home in one page itself -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Tutor</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="assets/css/startcs.css"> -->
-
-    <!-- =====BOX ICONS===== -->
-    <!-- <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-</head>
-  <body>
-        <header><h1><center><i> Online Tutuor</i> </center></h1></header>
-        <div class="topnav">
-            <ul>
-                <li><a href="index.html" class='active'>Home</a></li>
-                <li><a href="authentication/registration/register.html" >Registration</a></li>
-                <li><a href="authentication/signIn_SignOut/login.html">Log In</a></li>
-                <li><a href="logout.php">Log out</a></li>
-                <li><a href="finding/findStudent.html">Find Student</a></li>
-                <li><a href="finding/findTeacher.html">Find Tutor</a></li>
-                <li><a href="notification.html">Notification</a></li>
-                <li><a href="about.html" >About</a></li>
-            </ul>
-        </div> -->
-
-        <!-- <button class="FindStudent">Find Student</button>
-        <button class="FindTeacher">Find Teacher</button> -->
-
-
-        
-        <!-- footer -->
-        <!-- <footer class ="footer">
-            <p class="footer__title">Online Tutor<br>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p>&#169; 2020 copyright all right reserved</p>
-          </footer>
-     </body>
-
-</html> -->
