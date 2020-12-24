@@ -1,6 +1,9 @@
 <?php
+// session_start();
+// $con=mysqli_connect('localhost','root','');
+// mysqli_select_db($con,'userreg');
 
-mysql_connect("127.0.0.1", "root", "") or die("Could not connect");
+mysql_connect("localhost", "root", "") or die("Could not connect");
 mysql_select_db("userreg") or die("could not find databse");
 $output='';
 

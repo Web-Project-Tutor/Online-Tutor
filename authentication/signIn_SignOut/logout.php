@@ -6,7 +6,7 @@ session_start();
 //     header('location: login.php');
 // }
 session_destroy();
-header("Location: login.html");
+header("Location: ../../index.html");
 exit;
 
 // if (isset($_GET['logout'])) { 
