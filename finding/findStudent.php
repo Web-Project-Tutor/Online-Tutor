@@ -1,9 +1,6 @@
 <?php
-// session_start();
-// $con=mysqli_connect('localhost','root','');
-// mysqli_select_db($con,'userreg');
-
-mysql_connect("localhost", "root", "") or die("Could not connect");
+session_start();
+mysql_connect("127.0.0.1", "root", "") or die("Could not connect");
 mysql_select_db("userreg") or die("could not find databse");
 $output='';
 
@@ -52,21 +49,11 @@ if(isset($_POST['search']))
     <body>
         
         <form action="#findstudent.php" method="post">
-            <!-- <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
-            <input type="submit" name="search" value="Filter"><br><br> -->
-            <!-- <input type="button" value="back"/> -->
+           
             <a href="findstudent.php">refresh</a>
             <input type="text" name="search" placeholder="Searching elements"/>
             <input type="submit"  value=">>"/>
-            <!-- <input type="button" name="btn" value="refresh" onclick="return RefreshWindow();"/>
             
-
-            <script>
-            function RefreshWindow()
-            {
-                window.location.reload(true);
-            }
-            </script> -->
 
 
             <table border="1">
@@ -78,7 +65,7 @@ if(isset($_POST['search']))
         <th>address</th>
     </tr>
 <?php
-session_start();
+
 $con=mysqli_connect('127.0.0.1','root','');
 mysqli_select_db($con,'userreg');
 
@@ -116,24 +103,7 @@ while($res=mysqli_fetch_array($query)){
         </form>
         <?php print("$output");
        
-    // if(isset($_POST['btn'])){
-    // //     echo '<script type="text/javascript">',
-    // //    'RefreshWindow();',
-    // //    '</script>';
-    // //header("refresh:2;url=findstudent.php");
-
-    //     //   set_Logout();
-    //     //   $_POST = array();
-    //     //   //tests
-    //     //   $page = $_SERVER['PHP_SELF'];
-    //     //   echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
-
-    //     header('Location: '.$_SERVER['PHP_SELF']);
-    //     Exit(); //optional
-
-    // // $page = $_SERVER['PHP_SELF'];
-    // // print "<a href=\"$page\">Reload this page</a>";   
-    // }
+   
         ?>
         
     </body>
