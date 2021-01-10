@@ -128,7 +128,7 @@ $row=mysqli_fetch_array($query);
                             
                             <div class="dropdown-content">
 
-                               
+                                <!-- <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li> -->
                                 <li style="size: 250px;"><a href="teacherProfile.php"><span class="glyphicon glyphicon-user"></span>My Profile</a></li>
                                 <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
                      
