@@ -1,9 +1,14 @@
+
+
 <?php
 
-mysql_connect("127.0.0.1", "root", "") or die("Could not connect");
-mysql_select_db("userreg") or die("could not find databse");
+session_start();
+$con=mysqli_connect('localhost','root','');
+mysqli_select_db($con,'userreg');
+// session_start();
+// mysql_connect("localhost", "root", "") or die("Could not connect");
+// mysql_select_db("userreg") or die("could not find databse");
 $output='';
-
 
 if(isset($_POST['search']))
 {
@@ -34,38 +39,25 @@ if(isset($_POST['search']))
 
 
 ?>
-
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>PHP HTML TABLE DATA SEARCH</title>
-        <style>
-            table,tr,th,td
-            {
-                border: 1px solid black;
-            }
-        </style>
-    </head>
+    <head></head>
     <body>
-        
-        <form action="#findteacher.php" method="post">
-            <a href="findteacher.php">refresh</a>
-            <input type="text" name="search" placeholder="Searching elements"/>
+        <h1>Search</h1>
+        <form action="findTeacher.php" method="post">
+            <a href="finding/findStudent.php">refresh</a>
+            <input type="text" id='search' name="search" placeholder="Searching elements"/>
             <input type="submit"  value=">>"/>
-            
-
-
             <table border="1">
-    <tr>
-        <th>FirstName</th>
-        <th>SecondName</th>
-        <th>email</th>
-        <th>phone</th>
-        <th>address</th>
-    </tr>
+            <tr>
+                <th>FirstName</th>
+                <th>SecondName</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>address</th>
+            </tr>
 <?php
 session_start();
-$con=mysqli_connect('127.0.0.1','root','');
+$con=mysqli_connect('localhost','root','');
 mysqli_select_db($con,'userreg');
 
 $selectquery="select * from teacher";
@@ -98,10 +90,14 @@ while($res=mysqli_fetch_array($query)){
     echo "<br>";
 }
 ?>
-</table>        
+</table>   
+
+
+
         </form>
-        <?php print("$output");
-         ?>
-        
-         </body>
-     </html>
+
+        <?php print("$output");?>
+    </body>
+
+
+</html>
