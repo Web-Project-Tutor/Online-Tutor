@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con=mysqli_connect('127.0.0.1','root','');
+$con=mysqli_connect('localhost','root','');
 mysqli_select_db($con,'userreg');
 $id=$_SESSION['id'];
 $query=mysqli_query($con,"SELECT * FROM student where studentid='$id'")or die(mysqli_error());
@@ -85,7 +85,7 @@ $row=mysqli_fetch_array($query);
                 }
 
         </style>
-        <link rel="stylesheet" href="assets/css/navBarStyle.css">
+        <link rel="stylesheet" href="../assets/css/navBarStyle.css">
         <!-- <link rel="stylesheet" href="assets/css/footer.css"> -->
         <!-- <link rel="stylesheet" href="assets/css/profile.css"> -->
          <!-- =====BOX ICONS===== -->
