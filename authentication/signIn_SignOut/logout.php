@@ -5,8 +5,9 @@ session_start();
 //     $_SESSION['msg'] = "You have to log in first"; 
 //     header('location: login.php');
 // }
+unset($_SESSION['id']);
 session_destroy();
-header("Location: ../../index.html");
+header("Location: login.html");
 exit;
 
 // if (isset($_GET['logout'])) { 
