@@ -1,4 +1,7 @@
-
+<?php
+            session_start();    
+                  
+        ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -112,8 +115,8 @@
                             
                             <div class="dropdown-content">
 
-                                <li style="size: 250px;"><a href="profile/studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                                <li style="size: 250px;"><a href="profile/teacherProfile.php"><span class="glyphicon glyphicon-user"></span> Teacher Profile</a></li>
+                                <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li style="size: 250px;"><a href="teacherProfile.php"><span class="glyphicon glyphicon-user"></span> Teacher Profile</a></li>
                                 
                                 <!-- <li style="size: 250px;"><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li> -->
                                 <li style="size: 250px;"><a href="authentication/signIn_SignOut/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
@@ -154,7 +157,10 @@
             </div>
         </nav>
 
-
+        <?php   
+            
+            echo $_SESSION["id"]; 
+        ?>
 
 
 

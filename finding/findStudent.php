@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -16,10 +14,12 @@ $output='';
 
 if(isset($_POST['search']))
 {
+    // $searchq=$_POST['search'];
+    // $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
     $searchq=$_POST['search'];
     $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
-
     $query=mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
+    // $query=mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
     $count=mysql_num_rows($query);
     if($count==0){
         $output='there was no search result';
@@ -187,14 +187,15 @@ print("$output");
             table,tr,th,td
             {
                 border: 1px solid black;
+                al
             }
         </style>
     </head>
     <body>
         
-        <form action="#findstudent.php" method="post">
+        <form action="#findStudent.php" method="post">
            
-            <a href="findstudent.php">refresh</a>
+            <a href="findStudent.php">refresh</a>
             <input type="text" name="search" placeholder="Searching elements"/>
             <input type="submit"  value=">>"/>
             

@@ -16,7 +16,14 @@ $row=mysqli_fetch_array($query);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <style>
-
+            form, #centerAlign{
+                text-align: center;
+            }
+            input[type="text"] {
+             position: relative;
+             display: block;
+             margin : 0 auto;
+        }
             .imgCenter{
                 display: block;
                 margin-left: auto;
@@ -85,7 +92,7 @@ $row=mysqli_fetch_array($query);
                 }
 
         </style>
-        <link rel="stylesheet" href="../assets/css/navBarStyle.css">
+        <link rel="stylesheet" href="assets/css/navBarStyle.css">
         <!-- <link rel="stylesheet" href="assets/css/footer.css"> -->
         <!-- <link rel="stylesheet" href="assets/css/profile.css"> -->
          <!-- =====BOX ICONS===== -->
@@ -144,7 +151,7 @@ $row=mysqli_fetch_array($query);
         <!-- MY Profile Heading -->
 
 
-        <div class="container" style="background-color: white; ">
+        <div class="container" style="background-color: white; width:900px ">
             <div class="row">
                 <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 0, 0); margin-left:20px ;">My Profile</h1>
             </div>
@@ -152,13 +159,13 @@ $row=mysqli_fetch_array($query);
 
         
 
-        <div class="container" style="background-color: white; margin-top: 20px;  ">
+        <div class="container" style="background-color: white; margin-top: 20px;  width:900px ">
             <!-- Profile Pic -->
             <div id = "studentPic">
                 <img src="assets/img/avatar.png" style="height:200px; width: 250px; margin-left: 35%;margin-top:50px">
             </div>
 
-
+            <!-- detail of acccount n info -->
             <div class="container">
                 <div class="row">
                     <div style="margin-left: 35%;">
@@ -170,82 +177,97 @@ $row=mysqli_fetch_array($query);
 
 
            
-  <h1>User Profile</h1>
-<div class="profile-input-field">
-        <h3>Please Fill-out All Fields</h3>
-        <form method="post" action="#" >
+            <h1 id='centerAlign'>User Profile</h1>
+            <div id='centerAlign' class="profile-input-field">
+                <h3 id='centerAlign'>Please Fill-out All Fields</h3>
+                <form method="post" action="#" >
 
-          <div class="form-group">
-            <label>Firstname</label>
-            <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
-          </div>
+                <div class="form-group">
+                    <label>Firstname</label>
+                    <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
+                </div>
 
-          <div class="form-group">
-            <label>Surname</label>
-            <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['slname']; ?>" required />
-          </div>
+                <div class="form-group">
+                    <label>Surname</label>
+                    <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['slname']; ?>" required />
+                </div>
 
-          <!-- <div class="form-group">
-            <label>Gender</label>
-            <input type="text" class="form-control" name="gender" style="width:20em;" placeholder="Enter your Gender" required value="<?php echo $row['gender']; ?>" />
-          </div> -->
+                <!-- <div class="form-group">
+                    <label>Gender</label>
+                    <input type="text" class="form-control" name="gender" style="width:20em;" placeholder="Enter your Gender" required value="<?php echo $row['gender']; ?>" />
+                </div> -->
 
-          <!-- <div class="form-group">
-            <label>Age</label>
-            <input type="number" class="form-control" name="age" style="width:20em;" placeholder="Enter your Age" value="<?php echo $row['age']; ?>">
-          </div> -->
+                <!-- <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" class="form-control" name="age" style="width:20em;" placeholder="Enter your Age" value="<?php echo $row['age']; ?>">
+                </div> -->
 
-          <div class="form-group">
-            <label>Mail</label>
-            <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['semailid']; ?>" required />
-          </div>
+                <div class="form-group">
+                    <label>Mail</label>
+                    <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['semailid']; ?>" required />
+                </div>
 
-          <div class="form-group">
-            <label>Surname</label>
-            <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['sphone']; ?>" required />
-          </div>
+                <div class="form-group">
+                    <label>Surname</label>
+                    <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['sphone']; ?>" required />
+                </div>
 
-          <div class="form-group">
-            <label>Address</label>
-            <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['saddress']; ?>"></textarea>
-          </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['saddress']; ?>"></textarea>
+                </div>
 
-          <!-- <div class="form-group">
-            <label>Subject Name</label>
-            <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['subname']; ?>"></textarea>
-          </div> -->
+                <!-- <div class="form-group">
+                    <label>Subject Name</label>
+                    <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['subname']; ?>"></textarea>
+                </div> -->
 
-          <div class="form-group">
-            <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
-            <center>
-             <a href="logout.php">Log out</a>
-           </center>
-          </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
+                    <center>
+                    <a href="logout.php">Log out</a>
+                </center>
+                </div>
 
-        </form>
-      </div>
-      </html>
-      <?php
-      if(isset($_POST['submit'])){
-        $firstname = $_POST['fname'];
-        $surname = $_POST['sname'];
-        // $gender = $_POST['gender'];
-        // $age = $_POST['age'];
-        $mail = $_POST['mail'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-      $query = "UPDATE student SET sfname = '$firstname',
-                      slname = '$surname', semailid ='$mail', sphone = $phone,saddress = '$address'
-                      WHERE studentid = '$id'";
-                    $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                    ?>
-                     <script type="text/javascript">
-            alert("Update Successfull.");
-            window.location = "studentProfile.php";
-        </script>
+                </form>
+
+            </div>
+
+
+            <!-- <div id ="foot" >
+            <p class="footer__title">Online Tutor<br>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+            </div>
+            <p>&#169; 2020 copyright all right reserved</p> -->
+        </div>
+
         <?php
-             }              
-?>
+            if(isset($_POST['submit'])){
+                $firstname = $_POST['fname'];
+                $surname = $_POST['sname'];
+                // $gender = $_POST['gender'];
+                // $age = $_POST['age'];
+                $mail = $_POST['mail'];
+                $phone = $_POST['phone'];
+                $address = $_POST['address'];
+                $query = "UPDATE student SET sfname = '$firstname',
+                            slname = '$surname', semailid ='$mail', sphone = $phone,saddress = '$address'
+                            WHERE studentid = '$id'";
+                            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                            ?>
+                            <script type="text/javascript">
+                    alert("Update Successfull.");
+                    window.location = "studentProfile.php";
+                </script>
+                <?php
+            };
+            ?>
+    </body>
+</html>
+            
 
 
 
@@ -257,14 +279,4 @@ $row=mysqli_fetch_array($query);
 
 
  <!-- footer -->
- <div id ="foot" >
-            <p class="footer__title">Online Tutor<br>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p>&#169; 2020 copyright all right reserved</p>
-        </div>
-    </body>
-</html>
+
