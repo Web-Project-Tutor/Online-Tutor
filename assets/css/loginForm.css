@@ -1,59 +1,60 @@
 *{
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
+
+body{
   
-  body{
-    background: #e9eaea;
-    font-family: roboto;
-    user-select: none;
-    
-  }
-  
-  .container{
-    width: 450px;
-    margin: 30px auto;
-    
-  }
-  
-  .Student,
-  .Teacher{
-    width: 50%;
-    background: #fff;
-    float: left;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    cursor: pointer;
-    text-transform: uppercase;
-  }
-  
-  .log-student,
-  .log-teacher{
-    background: #fff;
-    padding: 40px;
-    clear: both;
-    width: 100%;
-    box-sizing: border-box;
-    height: 600px;
-  }
-  
-  .input{
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 25px;
-    border: 2px solid #e9eaea;
-    color: #3e3e40;
-    font-size: 14px;
-    outline: none;
-    transform: all 0.5s ease;
-  }
+  /* background: #e9eaea; */
+  font-family: roboto;
+  user-select: none;
   
   
+}
+
+
+.container{
+  width: 450px;
+  margin: 30px auto;
   
-  
-  
-  
-  
-  
+}
+
+.Student,
+.Teacher{
+  width: 50%;
+  background: #fff;
+  float: left;
+  /* height: auto; */
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.log-student,
+.log-teacher{
+  background: #fff;
+  padding: 40px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  height: 450px;
+}
+
+.input{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border: 2px solid #e9eaea;
+  color: #3e3e40;
+  font-size: 14px;
+  outline: none;
+  transform: all 0.5s ease;
+}
+
+
+
+
+
+

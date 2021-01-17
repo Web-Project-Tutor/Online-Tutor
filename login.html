@@ -9,6 +9,16 @@
             .navbar {
                 min-height: 50px;
             }
+            body{
+                /* background-image: url('assets/img/log/pic.jpg'); */
+                background-image: url("assets/img/log/pic.jpg");
+                background-color: #cccccc;
+               
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+            }
 
             .navbar-brand {
                 padding: 0 15px;
@@ -42,6 +52,7 @@
                 text-align: center;
                 font-weight: var(--font-semi);
                 height: 100px;
+                bottom: 0px;
             }
             #photoDetail{
                 margin-top: 50px;  
@@ -51,35 +62,11 @@
 
 
 
-            .imgCenter{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 800px;
-                height: 400px;
-            }
-
-            #conDetail{
-                margin-top: 50px;                
-                background-color:rgb(232,232,232)  ; 
-             }
-
-            #foot{
-                margin-top: 50px;                
-                background-color:rgb(0, 0, 0)  ; 
-                color: #fff;
-                text-align: center;
-                font-weight: var(--font-semi);
-                height: 100px;
-            }
-            #photoDetail{
-                margin-top: 50px;  
-
-            }
+     
 
 
         </style>
-        <link rel="stylesheet" href="assets/css/footer.css">
+        <!-- <link rel="stylesheet" href="assets/css/footer.css"> -->
         <link rel="stylesheet" href="assets/css/loginForm.css">
          <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -91,6 +78,7 @@
     </head>
 
     <body>
+        
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -106,8 +94,8 @@
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Student</a></li>
-                        <li><a href="#">Faculty</a></li>
+                        <li><a href="studentListIndex.php">Student</a></li>
+                        <li><a href="teacherListIndex.php">Faculty</a></li>
                         <li><a href="about.html">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -130,7 +118,7 @@
                 <div class="log-student">
                     <h2>Log In as a Student</h2>
                     <form action="studentlogin.php" method="POST">
-                        <label><b>Enter your mail</b></label><br>
+                        <label ><b>Enter your mail</b></label><br>
                         <input type="text" name="smail"><br><br>
                 
                         <label><b>Enter your password</b></label><br>
@@ -158,51 +146,6 @@
         </div>
 
 
-
-<!-- 
-        <h2>login</h2>
-        <div class="row">
-          <div class="column" style="background-color:#aaa;">
-            <h2>Log In as a Student</h2>
-            <form action="studentlogin.php" method="POST">
-                <label><b>Enter your mail</b></label><br>
-                <input type="text" name="smail"><br><br>
-        
-                <label><b>Enter your password</b></label><br>
-                <input type="password" name="spwd"><br><br>
-        
-                <button type="submit">Log in</button>
-                <p>Not registered?<a href="register.html">Register</a></p>
-            </form>
-          </div>
-          <div class="column" style="background-color:#bbb;">
-            <h2>Log In as a Teacher</h2>
-            <form action="teacherlogin.php" method="POST">
-                <label><b>Enter your mail</b></label><br>
-                <input type="text" name="tmail"><br><br>
-        
-                <label><b>Enter your password</b></label><br>
-                <input type="password" name="tpwd"><br><br>
-        
-                <button type="submit" value="submit">Log in</button>
-                <p>Not registered?<a href="register.html">Register</a></p>
-            </form>
-          </div>
-        </div> -->
-
-
-
-          <!-- footer -->
-        <!-- footer -->
-        <!-- <footer class ="footer">
-            <p class="footer__title">Online Tutor<br>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p>&#169; 2020 copyright all right reserved</p>
-          </footer> -->
 
 
            <!-- footer -->

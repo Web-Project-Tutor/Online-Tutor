@@ -1,11 +1,6 @@
-
-
- <html>
+<html>
     <head>
-
-
-        <style>
-            
+        <style>            
             .imgCenter{
                 display: block;
                 margin-left: auto;
