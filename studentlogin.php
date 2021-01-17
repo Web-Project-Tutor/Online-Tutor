@@ -19,31 +19,30 @@ if(isset($_POST['smail'])){
 
 
     
-  if ($num_rows>0)
+    if ($num_rows>0)
 
-  {
-    // header("refresh:1; url=home.php");
-    // $_SESSION["id"]=$row['studentid'];
+    {
+      
+        ?>
+        <script>
+
+          alert('Successfully Log In');
+          document.location='home.php';
+        </script>
+        <?php
+    }
+    else{
       ?>
-      <script>
+        <script>
 
-        alert('Successfully Log In');
-        document.location='home.php';
-      </script>
-      <?php
-  }
-  else{
-    ?>
-      <script>
-
-        alert('Unable to Log In');
-        document.location='index.html';
-      </script>
-      <?php
-  }
+          alert('Unable to Log In');
+          document.location='index.html';
+        </script>
+        <?php
+    }
 
   
-  }
+}
 
 
  ?>

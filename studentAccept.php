@@ -1,13 +1,13 @@
 <?php
-            session_start();    
-                  
-        ?>
+    session_start();                      
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Online Tutor</title>
         <meta charset ="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/tableDesign.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <style>
 
@@ -77,6 +77,7 @@
                 padding: 15px;
                 text-align: center;
                 }
+                
 
         </style>
         <link rel="stylesheet" href="assets/css/navBarStyle.css">
@@ -104,9 +105,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
-                        <!-- <li><a href="finding/findStudent.php">Student</a></li> -->
-                        <li><a href="connectTeach.php">Faculty</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="studentRequest.php">Request</a></li>
+                        <li class="active"><a href="studentAccept.php">Accept</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
@@ -115,30 +116,95 @@
                             
                             <div class="dropdown-content">
 
-                                <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li style="size: 250px;"><a href="teacherProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                                 <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
                                 
                                 
                                 
-                                <!-- <li style="size: 250px;"><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> 
-                                 -->
-                     
-
+                               
                             </div>
                         
                         
                         </div>
 
-                        <!-- <img src="assets/img/avatar.png" alt="Avatar" class="avatar"> -->
-                        <!-- <li><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                        <li><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> --> -->
-                     </ul> 
+                        </ul> 
                 </div>
             </div>
         </nav>
-        <?php
-            echo $_SESSION['id'];
-        ?>
+       
+
+        <table border="2" id = "tableId">
+            <tr>
+                <th> Sl.no </th>
+                <th>Student Id</th>
+                <th>Student Name </th>
+                <th>Location</th>
+                <th>Class</th>
+                
+            </tr>
+
+            <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "userreg";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+                    // $sid = $_SESSION['id'];
+                    $teachID=$_SESSION["teacherid"];
+                    
+                    
+                    // $sql = "SELECT * FROM connectTeacher where teacherId = $teachID";
+
+
+                    $sql = "SELECT * FROM student s, connectTeacher c where s.studentId = c.studentId and  c.teacherId = $teachID and response = 'accept' ";
+                    
+                    
+                    $result = $conn->query($sql);
+
+                    echo $_SESSION['teacherid'];
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                        $i=0;
+
+                        while($row = $result->fetch_assoc()) {
+                            $i=$i+1;
+
+                            echo "
+
+
+                            <tr>  
+                            
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$i."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['studentId']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['sfname']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['location']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['class']."</td>
+        
+                            </tr>";
+                            
+                            
+                        }
+                    } 
+                    else {
+                        echo "0 results";
+                    }
+                    $conn->close();
+                ?>
+
+
+
+
+        </table>
+        
+
+
+
 
 
         <!-- footer -->

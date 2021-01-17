@@ -22,29 +22,57 @@ $phone=$_POST['sphone'];
 $address=$_POST['saddress'];
 $pass=$_POST['spwd'];
 
-// $s="select * from student where sfname='$fname' && slname='$lname' && semailid='$mail' sphone='$phone'&& saddress='$address' && spass='$pass'";
 
-$s="insert into  student (sfname,slname,semailid,sphone,saddress,spass, profile) values ('$fname','$lname','$mail','$phone','$address','$pass','Student')";
-// $result=mysqli_query($con,$s);
-// $num=mysqli_num_rows($result);
 
-// if($num==1){
-//     echo "username already taken";
-// }
-// else{
-//     $reg="insert insto student(studentid,sfname,slanme,semailid,sphone,saddress,spass)values('$fname','$lname','$mail','$phone','$address','$pass')";
-//     mysqli_query($con,$reg);
-//     echo "Registration successful";
-// }
+$s="insert into  student (sfname,slname,semailid,sphone,saddress,spass) values ('$fname','$lname','$mail','$phone','$address','$pass')";
 
-// echo $s ;
+
 if(!mysqli_query($con,$s))
     {
         echo 'not inserted';
     }
     else
     {
-        header("Location: http://localhost/tutor/Online-Tutor/home.html");
+
+
+
+
+        if(isset($mail)){
+            $email = $_POST['smail'];
+            $password=$_POST['spwd'];
+            $query=mysqli_query($con,"SELECT * FROM student WHERE semailid='$email' AND  spass='$password'");
+            $num_rows=mysqli_num_rows($query);
+            $row=mysqli_fetch_array($query);
+            $_SESSION["id"]=$row['studentId'];
+        
+        
+            
+            if ($num_rows>0)
+        
+            {
+              
+                ?>
+                <script>
+        
+                  alert('Successfully Log In');
+                  document.location='home.php';
+                </script>
+                <?php
+            }
+            else{
+              ?>
+                <script>
+        
+                  alert('Unable to Log In');
+                  document.location='index.html';
+                </script>
+                <?php
+            }
+        
+          
+        }
+
+        header("Location: home.php");
         exit();
         // echo 'inserted';
         // header("refresh:1; url=http://localhost/tutor/Online-Tutor/index.html");
