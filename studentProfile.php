@@ -3,7 +3,7 @@ session_start();
 $con=mysqli_connect('localhost','root','');
 mysqli_select_db($con,'userreg');
 $id=$_SESSION['id'];
-$query=mysqli_query($con,"SELECT * FROM student where studentid='$id'")or die(mysqli_error());
+$query=mysqli_query($con,"SELECT * FROM student where studentId='$id'")or die(mysqli_error());
 $row=mysqli_fetch_array($query);
 
 // $sujectquery=mysqli_query($con,"SELECT * FROM suject where studentid='$id'")or die(mysqli_error());
@@ -192,15 +192,7 @@ $row=mysqli_fetch_array($query);
                     <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['slname']; ?>" required />
                 </div>
 
-                <!-- <div class="form-group">
-                    <label>Gender</label>
-                    <input type="text" class="form-control" name="gender" style="width:20em;" placeholder="Enter your Gender" required value="<?php echo $row['gender']; ?>" />
-                </div> -->
-
-                <!-- <div class="form-group">
-                    <label>Age</label>
-                    <input type="number" class="form-control" name="age" style="width:20em;" placeholder="Enter your Age" value="<?php echo $row['age']; ?>">
-                </div> -->
+               
 
                 <div class="form-group">
                     <label>Mail</label>
@@ -208,7 +200,7 @@ $row=mysqli_fetch_array($query);
                 </div>
 
                 <div class="form-group">
-                    <label>Surname</label>
+                    <label>Phone Number</label>
                     <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['sphone']; ?>" required />
                 </div>
 

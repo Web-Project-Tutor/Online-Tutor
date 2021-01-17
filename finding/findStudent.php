@@ -16,11 +16,11 @@ if(isset($_POST['search']))
 {
     // $searchq=$_POST['search'];
     // $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
-    $searchq=$_POST['search'];
-    $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
-    $query=mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
+    $searchq = $_POST['search'];
+    $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
+    $query = mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
     // $query=mysql_query("select * from student where sfname like '%$searchq%' or slname like '%$searchq%' or saddress like'%$searchq%'") or die("could not seach");
-    $count=mysql_num_rows($query);
+    $count = mysql_num_rows($query);
     if($count==0){
         $output='there was no search result';
 
@@ -193,7 +193,7 @@ print("$output");
     </head>
     <body>
         
-        <form action="#findStudent.php" method="post">
+        <form action="" method="post">
            
             <a href="findStudent.php">refresh</a>
             <input type="text" name="search" placeholder="Searching elements"/>

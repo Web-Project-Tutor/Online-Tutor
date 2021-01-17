@@ -106,7 +106,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="home.html">Home</a></li>
                         <li><a href="finding/findStudent.php">Student</a></li>
-                        <li><a href="finding/findTeacher.php">Faculty</a></li>
+                        <li><a href="connection/connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
@@ -132,23 +132,6 @@
                         
                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <!-- <img src="assets/img/avatar.png" alt="Avatar" class="avatar"> -->
                         <!-- <li><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
                         <li><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> --> -->
@@ -156,14 +139,9 @@
                 </div>
             </div>
         </nav>
-
-        <?php   
-            
-            echo $_SESSION["id"]; 
+        <?php
+            echo $_SESSION['id'];
         ?>
-
-
-
 
 
         <!-- footer -->
