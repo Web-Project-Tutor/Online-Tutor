@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/tableDesign.css">
+        
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+        <p> List Of All The Student</p>
+        <table border="2" id = "tableId">
+            <tr>
+                <th> Sl.no </th>
+                <th>First Name</th>
+                <th>last Name </th>
+                <th>Email</th>
+            </tr>
+
+                <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "userreg";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sid = $_SESSION['id'];
+                    
+                    $sql = "SELECT * FROM student ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                    $i=0;
+
+                    while($row = $result->fetch_assoc()) {
+                        $i=$i+1;
+
+                        echo "
+                        <tr>
+                        <td>".$i."</td>
+                        <td>".$row['sfname']."</td>
+                        <td>".$row['slname']."</td>
+                        <td>".$row['semailid']."</td>
+                        
+                        
+                        ";
+                    }
+                    } else {
+                    echo "0 results";
+                    }
+                    $conn->close();
+                ?>
+
+
+
+
+        </table>
+
+
+    </body>
+</html>

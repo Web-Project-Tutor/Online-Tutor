@@ -1,18 +1,4 @@
-<!-- 
-    // session_start();
-    // $con=mysqli_connect('localhost','root','');
-    // mysqli_select_db($con,'userreg');
-    // $sid = $_SESSION["id"];
-    // $query = mysqli_query($con, "SELECT * FROM connectionTeacher WHERE sid='$sid'");
-    // $res = mysqli_query($sql, $str);
-    // $num_rows = mysqli_num_rows($query);
-    // $row=mysqli_fetch_array($query);
-    // $_SESSION["sid"]=$row['sid'];
-    // $_SESSION["tid"]=$row['tid'];
-    // $_SESSION["response"]=$row['response'];
-    // echo "hello";
-    // echo $sid;
-    // echo $_SESSION["sid"]; -->
+
 
     <?php
     $servername = "localhost";

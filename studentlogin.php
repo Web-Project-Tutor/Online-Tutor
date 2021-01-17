@@ -32,6 +32,17 @@ if(isset($_POST['smail'])){
       </script>
       <?php
   }
+  else{
+    ?>
+      <script>
+
+        alert('Unable to Log In');
+        document.location='index.html';
+      </script>
+      <?php
+  }
+
+  
   }
 
 
