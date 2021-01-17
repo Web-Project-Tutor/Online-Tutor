@@ -209,6 +209,168 @@ $row=mysqli_fetch_array($query);
                     <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['saddress']; ?>"></textarea>
                 </div>
 
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <label>Location</label>
+
+                    <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
+                </div>
+
+                <div class="form-group">
+                    <label>	gender: </label>
+                    <label><?php echo $row['gender']; ?><label>
+                    <br><label>Female<label>
+                    <input type="radio" class="form-control" name="gender" value="Female" required />
+                    <br><label>Male<label>
+                    <input type="radio" class="form-control" name="gender" style="width:20em;" value="Male" required />
+             
+                
+                
+                </div>
+
+               
+
+                <div class="form-group">
+                    <label>university: </label>
+                    <input type="text" class="form-control" name="university" style="width:20em;" placeholder="Enter your university Name" value="<?php echo $row['university']; ?>" required />
+                </div>
+
+                <div class="form-group">
+                    <label>language: </label>
+                    <label><?php echo $row['language']; ?><label>
+                    <br><label>English<label>
+                    <input type="checkbox" name="English" value="English"> 
+                    <br><label>Kannada<label>                   
+                    <input type="checkbox" name="Kannada" value="Kannada">
+                    <br><label>Hindi<label>                    
+                    <input type="checkbox" name="Hindi" value="Hindi">
+                    
+
+                </div>
+
+                <div class="form-group">
+                    <label>	class</label>
+                    <label><?php echo $row['class']; ?></label>
+
+
+                    <br><label>1-7<label>
+                    <input type="checkbox" name="1-7" value="1-7">  
+
+                    <br><label>8-10<label>                  
+                    <input type="checkbox" name="8-10" value="8-10">
+
+                    <br><label>11-12<label>                    
+                    <input type="checkbox" name="11-12" value="11-12">
+
+                    <br><label>BE-CSE<label>
+                    <input type="checkbox" name="BE-CSE" value="BE-CSE"> 
+
+                    <br><label>BE-Civil<label>                   
+                    <input type="checkbox" name="BE-Civil" value="BE-Civil"> 
+
+                    <br><label>BE-Mech<label>                   
+                    <input type="checkbox" name="BE-Mech" value="BE-Mech">
+
+                    <br><label>BE-IS<label>
+                    <input type="checkbox" name="BE-IS" value="BE-IS"> 
+
+                    <br><label>BE-Ec<label>                   
+                    <input type="checkbox" name="BE-Ec" value="BE-Ec"> 
+
+                    <br><label>BCA<label>                   
+                    <input type="checkbox" name="BCA" value="BCA">
+
+                
+                
+                
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>medium : </label>
+                    <label><?php echo $row['medium']; ?></label>
+
+                    <br><label>English<label>
+                    <input type="checkbox" name="English" value="English">
+
+                    <br><label>Kannada<label>                    
+                    <input type="checkbox" name="Kannada" value="Kannada">
+
+                    <br><label>Hindi<label>                    
+                    <input type="checkbox" name="Hindi" value="Hindi">
+                
+                
+                </div>
+
+                <div class="form-group">
+                    <label>subject : </label>
+                    <label><?php echo $row['saddress']; ?></label>
+
+                    <br><label>Computer Science<label>
+                    <input type="checkbox" name="Computer Science" value="Computer Science">  
+
+                    <br><label>Maths<label>                  
+                    <input type="checkbox" name="Maths" value="Maths">  
+
+                    <br><label>Physics<label>                  
+                    <input type="checkbox" name="Physics" value="Physics">
+
+                    <br><label>Chemistry<label>
+                    <input type="checkbox" name="Chemistry" value="Chemistry"> 
+
+                    <br><label>Biology<label>                   
+                    <input type="checkbox" name="Biology" value="Biology">   
+
+                    <br><label>Arts<label>                 
+                    <input type="checkbox" name="Arts" value="Arts">
+
+                    <br><label>Commers<label>
+                    <input type="checkbox" name="Commers" value="Commers">
+
+                    <br><label>Science<label>                    
+                    <input type="checkbox" name="Science" value="Science"> 
+
+                    <br><label>Statics<label>                   
+                    <input type="checkbox" name="Statics" value="Statics">
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <!-- <div class="form-group">
                     <label>Subject Name</label>
                     <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['subname']; ?>"></textarea>
