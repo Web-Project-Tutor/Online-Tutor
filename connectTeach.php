@@ -1,16 +1,11 @@
-<?php
-            session_start();    
-                  
-        ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Online Tutor</title>
-        <meta charset ="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <style>
 
+
+ <html>
+    <head>
+
+
+        <style>
+            
             .imgCenter{
                 display: block;
                 margin-left: auto;
@@ -35,9 +30,6 @@
                 font-weight: var(--font-semi);
                 height: 100px;
                 bottom: 0px;
-                position: absolute;
-
-            
 
             }
             #photoDetail{
@@ -69,28 +61,33 @@
                 z-index: 1;
                 }
 
-                .dropdown:hover .dropdown-content {
+            .dropdown:hover .dropdown-content {
                 display: block;
-                }
+            }
 
-                .desc {
+            .desc {
                 padding: 15px;
                 text-align: center;
-                }
+            }
+            .row{
+                margin:25px;
+            }            
 
         </style>
+        
+        
         <link rel="stylesheet" href="assets/css/navBarStyle.css">
-        <link rel="stylesheet" href="assets/css/footer.css">
-         <!-- =====BOX ICONS===== -->
+        <link rel="stylesheet" href="assets/css/tableDesign.css">
+        <!-- <link rel="stylesheet" href="assets/css/navBarStyle.css"> -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-        
+        <link rel="stylesheet" href="assets/css/footer.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
+    <!-- <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
@@ -104,48 +101,74 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
-                        <!-- <li><a href="finding/findStudent.php">Student</a></li> -->
-                        <li><a href="connectTeach.php">Faculty</a></li>
+                        <li ><a href="home.php">Home</a></li>
+                        <li class="active"><a href="connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
-                     <ul class="nav navbar-nav navbar-right">
-                        <div class="dropdown">
-                            <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
-                            
-                            <div class="dropdown-content">
-
-                                <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                                <li style="size: 250px;"><a href="teacherProfile.php"><span class="glyphicon glyphicon-user"></span> Teacher Profile</a></li>
-                                
-                                <!-- <li style="size: 250px;"><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li> -->
-                                <li style="size: 250px;"><a href="authentication/signIn_SignOut/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
-                                
-                                
-                                
-                                <!-- <li style="size: 250px;"><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> 
-                                 -->
-                     
-
-                            </div>
-                        
-                        
-                        </div>
-
-                        <!-- <img src="assets/img/avatar.png" alt="Avatar" class="avatar"> -->
-                        <!-- <li><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                        <li><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> --> -->
-                     </ul> 
+                    
                 </div>
             </div>
-        </nav>
-        <?php
-            echo $_SESSION['id'];
-        ?>
+    </nav> -->
+        <table border="2" id = "tableId">
+            <tr>
+                <th> Sl.no </th>
+                <th>First Name</th>
+                <th>last Name </th>
+                <th>Email</th>
+            </tr>
+
+                <?php
+                    session_start();
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "userreg";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sid = $_SESSION['id'];
+                    
+                    $sql = "SELECT * FROM teacher ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                    $i=0;
+
+                    while($row = $result->fetch_assoc()) {
+                        $i=$i+1;
+                        $_SESSION["particularTeacher"]=$row['teacherId'];
+
+                        echo "
+                        
+                        <tr  onclick=\"window.location='particularTeachPro.php?id=".$row["teacherId"]."'\">           
+                        <td>".$i."</td>
+                        <td>".$row['tfname']."</td>
+                        <td>".$row['tlname']."</td>
+                        <td>".$row['tmail']."</td></a></tr>
+                        
+                        
+                        ";
+                    }
+                    } else {
+                    echo "0 results";
+                    }
+                    $conn->close();
+                ?>
 
 
-        <!-- footer -->
-         <div id ="foot">
+
+
+        </table>
+
+
+
+<!-- Footer -->
+        <div id ="foot">
             <p class="footer__title">Online Tutor<br>
             <div class="footer__social">
                 <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
@@ -156,28 +179,3 @@
         </div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
