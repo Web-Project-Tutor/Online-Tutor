@@ -25,26 +25,48 @@ mysqli_select_db($con,'userreg');
         
 // }
 
-if(isset($_POST['tmail']))
-{
-$email=$_POST['tmail'];
-$password=$_POST['tpwd'];
 
 
-    $result=mysqli_query($con,"SELECT * FROM teacher WHERE tmail='$email' AND  tpass='$password'");
-	$row=mysqli_num_rows($result);
-	if($row>0)
-	{
-	$_SESSION['tmail']=$email;
-    
-    header("location:http://localhost/tutor/Online-Tutor/home.html");
-    //header("location:admin.php");
-    // header("refresh:1; url=home.html");
-    exit();
-    }
-    else{
+// if(isset($_POST['tmail']))
+// {
+// $email=$_POST['tmail'];
+// $password=$_POST['tpwd'];
+
+
+
+//     $result=mysqli_query($con,"SELECT * FROM teacher WHERE tmail='$email' AND  tpass='$password'");
+//     $row=mysqli_num_rows($result);
+//     $_SESSION['id']=$row['teacherid'];
+// 	if($row>0)
+// 	{
+// 	$_SESSION['tmail']=$email;
+	
+//     //header("location:admin.php");
+//     header("refresh:1; url=home.html");
+//     exit();
+//     }
+//     else{
 		
-        echo "Invalid Email or Password";
-    }
-}
+//         echo "Invalid Email or Password";
+//     }
+// }
+
+if(isset($_POST['tmail'])){
+    $email = $_POST['tmail'];
+    $password=$_POST['tpwd'];
+    $query=mysqli_query($con,"SELECT * FROM teacher WHERE tmail='$email' AND  tpass='$password'");
+    $num_rows=mysqli_num_rows($query);
+    $row=mysqli_fetch_array($query);
+    $_SESSION["id"]=$row['teacherid'];
+  if ($num_rows>0)
+  {
+      ?>
+      <script>
+        alert('Successfully Log In');
+        document.location='home.html';
+      </script>
+      <?php
+  }
+  }
+
 ?>
