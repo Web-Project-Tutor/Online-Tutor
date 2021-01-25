@@ -1,9 +1,9 @@
 
 <?php
-     session_start();
+    session_start();
             
-     $particularStudentID =  $_GET['id'];
-     
+    $particularStudentID =  $_GET['id'];
+    $teachId = $_SESSION['teacherid'];
      
      $_SESSION['particularStudentID']=$particularStudentID;
      
@@ -13,6 +13,8 @@
      $password = "";
      $dbname = "userreg";
 
+    // echo $particularStudentID;
+    // echo $teachID;
      // Create connection
      $conn = new mysqli($servername, $username, $password, $dbname);
      // Check connection
@@ -42,6 +44,7 @@
             }
             #detail{
                 margin-left:85px;
+                height:100%;
                 
 
             }
@@ -139,10 +142,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li><a href="home.php">Home</a></li>
+                        <li ><a href="teachHome.php">Home</a></li>
+                        <li><a href="studentRequest.php">Request</a></li>
+                        <li><a href="studentAccept.php">Accept</a></li>
+                        <li ><a href="about.html">About</a></li>
+                        <!-- <li><a href="teachHome.php">Home</a></li>
                         
                         <li><a href="connectTeach.php">Faculty</a></li>
-                        <li ><a href="about.html">About</a></li>
+                        <li ><a href="about.html">About</a></li> -->
                     </ul>
                      
                 </div>
@@ -159,7 +166,7 @@
             </div>
         </div>
 
-        <div class="container" style = "background-color:white; margin-top: 20px; height: 100%; ">
+        <div class="container" style = "background-color:white; margin-top: 20px;">
                 
             <!-- Profile Pic -->
             <div class= "row">
@@ -204,11 +211,16 @@
             <!-- on press button -->
             <!-- on press button -->
             <?php 
-               $teachId =$_SESSION['teacherid'];
-            
+
                 if (isset($_POST["accept"]))
                 {
-                     $sql = "UPDATE  connectTeacher SET  response='accept' where studentId = '$particularStudentID' , teacherId= '$teachId' ";
+                    // echo '<script>alert('.$teachId.')</script>'; 
+                // echo $particularStudentID;
+
+
+                    $sql = "UPDATE  connectTeacher SET  response='accept' where studentId  = '$particularStudentID' and teacherId= '$teachId' ";
+                   
+                    // $sql = "UPDATE  connectTeacher SET  response='accept' where studentId = '$particularStudentID' , teacherId= '$teachId' ";
                     if ($conn->query($sql) === TRUE) {
                         echo '<script>alert("Record updated successfully")</script>'; 
                     
@@ -225,7 +237,9 @@
                 }
                 if (isset($_POST["reject"]))
                 {
-                     $sql = "UPDATE  connectTeacher SET studentId = $studId , teacherId=$teachId, response='reject'";
+                    
+                    $sql = "UPDATE  connectTeacher SET  response='reject' where studentId  = '$particularStudentID' and teacherId= '$teachId' ";
+                   
                     if ($conn->query($sql) === TRUE) {
                         echo '<script>alert("Record updated successfully")</script>'; 
                     

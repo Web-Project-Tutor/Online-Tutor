@@ -117,9 +117,9 @@ $row=mysqli_fetch_array($query);
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
-                        <li><a href="findStudent.php">Student</a></li>
-                        <li><a href="findTeacher.php">Faculty</a></li>
+                        <li class="active"><a href="home.php">Home</a></li>
+                        <!-- <li><a href="findStudent.php">Student</a></li> -->
+                        <li><a href="connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
@@ -180,34 +180,9 @@ $row=mysqli_fetch_array($query);
             <h1 id='centerAlign'>User Profile</h1>
             <div id='centerAlign' class="profile-input-field">
                 <h3 id='centerAlign'>Please Fill-out All Fields</h3>
-                <form method="post" action="#" >
+            
 
-                <div class="form-group">
-                    <label>Firstname</label>
-                    <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
-                </div>
-
-                <div class="form-group">
-                    <label>Surname</label>
-                    <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['slname']; ?>" required />
-                </div>
-
-               
-
-                <div class="form-group">
-                    <label>Mail</label>
-                    <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['semailid']; ?>" required />
-                </div>
-
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['sphone']; ?>" required />
-                </div>
-
-                <div class="form-group">
-                    <label>Address</label>
-                    <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['saddress']; ?>"></textarea>
-                </div>
+            </div>
 
 
 
@@ -216,186 +191,204 @@ $row=mysqli_fetch_array($query);
 
 
 
-                <div class="form-group">
-                    <label>Location</label>
 
-                    <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
-                </div>
 
-                <div class="form-group">
-                    <label>	gender: </label>
-                    <label><?php echo $row['gender']; ?><label>
-                    <br><label>Female<label>
-                    <input type="radio" class="form-control" name="gender" value="Female" required />
-                    <br><label>Male<label>
-                    <input type="radio" class="form-control" name="gender" style="width:20em;" value="Male" required />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <form method="post" action="#" >
+
+            <div class="form-group">
+                <label>Firstname</label>
+                <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['sfname']; ?>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Surname</label>
+                <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['slname']; ?>" required />
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Mail</label>
+                <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['semailid']; ?>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['sphone']; ?>" required />
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['saddress']; ?>"></textarea>
+            </div>
+
+
+
+
+
+
+
+
+         
+
+            <div class="radioLeft">
+                <label>Please select your gender:</label><br>
+                <input type="radio" id="male" name="gender" value="male" >
+                <label for="male">Male</label><br>
+                
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label><br>
+
+                <!-- <?php if ($row['gender'] != "Female") echo 'checked=checked' ?>  -->
+
+                <!-- <script type="text/javascript">
+                    $(document).ready(function () {
+                    if(window.location.href.indexOf("#community") > -1) { // check if URL contains #community in it
+                    document.getElementById("myCustomCheckBox").checked; // set your checkbox checked
+                        }
+                    });
+                    </script> -->
+                
+            </div>
+
+
+
+            <div class="form-group">
+                <label>University: </label>
+                
+                <input type="text" class="form-control" name="uni" style="width:20em;" placeholder="Enter your university Name" value="<?php echo $row['university']; ?>" required />
+            </div>
+
+
+
+            <div class="form-group">
+            <label>Please select Language:</label><br>
+                <input type="checkbox" name="lan" value="English" >
+                <label for="english">English</label><br>
+                <input type="checkbox"  name="lan" value="Kannada">
+                <label for="kannada">Kannada</label><br>
+                <input type="checkbox" name="lan" value="Hindi">
+                <label for="hindi">Hindi</label><br>
+                
+            </div>
+
+            <div class="form-group">
+                <label>Choose Class:</label><br>
+
+                <input type="checkbox" name="cla" value="1-7"> 
+                <label for="class">Class 1-7</label><br>
+
+                <input type="checkbox" name="cla" value="8-10"> 
+                <label for="class">Class 8-10</label><br>
+
+                <input type="checkbox" name="cla" value="11-12"> 
+                <label for="class">Class 11-12</label><br>
+
+                <input type="checkbox" name="cla" value="BE-CSE"> 
+                <label for="class">BE-CSE</label><br>
+
+                <input type="checkbox" name="cla" value="BE-Civil"> 
+                <label for="class">BE-Civil</label><br>
+
+                <input type="checkbox" name="cla" value="BE-Mech"> 
+                <label for="class">BE-Mech</label><br>
+
+                <input type="checkbox" name="cla" value="BE-ISE"> 
+                <label for="class">BE-ISE</label><br>
+
+                <input type="checkbox" name="cla" value="BE-ECE"> 
+                <label for="class">BE-ECE</label><br>
+
+                <input type="checkbox" name="cla" value="BCA"> 
+                <label for="class">BCA</label><br>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+
+                <label>Choose Subject:</label><br>
+
+                <input type="checkbox" name="sub" value="CS"> 
+                <label for="class">Computer Science</label><br>
+
+                <input type="checkbox" name="sub" value="Maths"> 
+                <label for="class">Maths</label><br>
+
+                <input type="checkbox" name="sub" value="Physics"> 
+                <label for="class">Physics</label><br>
+
+                <input type="checkbox" name="sub" value="chem"> 
+                <label for="class">Chemistry</label><br>
+
+                <input type="checkbox" name="sub" value="bio"> 
+                <label for="class">Biology</label><br>
+
+                <input type="checkbox" name="sub" value="arts"> 
+                <label for="class">Arts</label><br>
+
+                <input type="checkbox" name="sub" value="commerce"> 
+                <label for="class">Commerce</label><br>
+            
+                <input type="checkbox" name="sub" value="science"> 
+                <label for="class">Science</label><br>
+
+                <input type="checkbox" name="sub" value="stats"> 
+                <label for="class">Statics</label><br>
+
+            </div>
+
+
+
+            <!-- <div class="form-group">
+                <label>Subject Name</label>
+                <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['subname']; ?>"></textarea>
+            </div> -->
+
+            <div class="form-group">
+                <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
+                <center>
+                <a href="logout.php">Log out</a>
+            </center>
+            </div>
+
+        </form>
+
              
-                
-                
-                </div>
-
-               
-
-                <div class="form-group">
-                    <label>university: </label>
-                    <input type="text" class="form-control" name="university" style="width:20em;" placeholder="Enter your university Name" value="<?php echo $row['university']; ?>" required />
-                </div>
-
-                <div class="form-group">
-                    <label>language: </label>
-                    <label><?php echo $row['language']; ?><label>
-                    <br><label>English<label>
-                    <input type="checkbox" name="English" value="English"> 
-                    <br><label>Kannada<label>                   
-                    <input type="checkbox" name="Kannada" value="Kannada">
-                    <br><label>Hindi<label>                    
-                    <input type="checkbox" name="Hindi" value="Hindi">
-                    
-
-                </div>
-
-                <div class="form-group">
-                    <label>	class</label>
-                    <label><?php echo $row['class']; ?></label>
-
-
-                    <br><label>1-7<label>
-                    <input type="checkbox" name="1-7" value="1-7">  
-
-                    <br><label>8-10<label>                  
-                    <input type="checkbox" name="8-10" value="8-10">
-
-                    <br><label>11-12<label>                    
-                    <input type="checkbox" name="11-12" value="11-12">
-
-                    <br><label>BE-CSE<label>
-                    <input type="checkbox" name="BE-CSE" value="BE-CSE"> 
-
-                    <br><label>BE-Civil<label>                   
-                    <input type="checkbox" name="BE-Civil" value="BE-Civil"> 
-
-                    <br><label>BE-Mech<label>                   
-                    <input type="checkbox" name="BE-Mech" value="BE-Mech">
-
-                    <br><label>BE-IS<label>
-                    <input type="checkbox" name="BE-IS" value="BE-IS"> 
-
-                    <br><label>BE-Ec<label>                   
-                    <input type="checkbox" name="BE-Ec" value="BE-Ec"> 
-
-                    <br><label>BCA<label>                   
-                    <input type="checkbox" name="BCA" value="BCA">
-
-                
-                
-                
-                </div>
-
-
-
-                <div class="form-group">
-                    <label>medium : </label>
-                    <label><?php echo $row['medium']; ?></label>
-
-                    <br><label>English<label>
-                    <input type="checkbox" name="English" value="English">
-
-                    <br><label>Kannada<label>                    
-                    <input type="checkbox" name="Kannada" value="Kannada">
-
-                    <br><label>Hindi<label>                    
-                    <input type="checkbox" name="Hindi" value="Hindi">
-                
-                
-                </div>
-
-                <div class="form-group">
-                    <label>subject : </label>
-                    <label><?php echo $row['saddress']; ?></label>
-
-                    <br><label>Computer Science<label>
-                    <input type="checkbox" name="Computer Science" value="Computer Science">  
-
-                    <br><label>Maths<label>                  
-                    <input type="checkbox" name="Maths" value="Maths">  
-
-                    <br><label>Physics<label>                  
-                    <input type="checkbox" name="Physics" value="Physics">
-
-                    <br><label>Chemistry<label>
-                    <input type="checkbox" name="Chemistry" value="Chemistry"> 
-
-                    <br><label>Biology<label>                   
-                    <input type="checkbox" name="Biology" value="Biology">   
-
-                    <br><label>Arts<label>                 
-                    <input type="checkbox" name="Arts" value="Arts">
-
-                    <br><label>Commers<label>
-                    <input type="checkbox" name="Commers" value="Commers">
-
-                    <br><label>Science<label>                    
-                    <input type="checkbox" name="Science" value="Science"> 
-
-                    <br><label>Statics<label>                   
-                    <input type="checkbox" name="Statics" value="Statics">
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- <div class="form-group">
-                    <label>Subject Name</label>
-                    <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['subname']; ?>"></textarea>
-                </div> -->
-
-                <div class="form-group">
-                    <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
-                    <center>
-                    <a href="logout.php">Log out</a>
-                </center>
-                </div>
-
-                </form>
-
-            </div>
-
-
-            <!-- <div id ="foot" >
-            <p class="footer__title">Online Tutor<br>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p>&#169; 2020 copyright all right reserved</p> -->
+            
         </div>
 
         <?php
@@ -407,11 +400,26 @@ $row=mysqli_fetch_array($query);
                 $mail = $_POST['mail'];
                 $phone = $_POST['phone'];
                 $address = $_POST['address'];
+
+
+                $gender=$_POST['gender'];
+                $university=$_POST['uni'];
+                $language=$_POST['lan'];
+                $class=$_POST['cla'];
+                $subject=$_POST['sub'];
+
+
                 $query = "UPDATE student SET sfname = '$firstname',
-                            slname = '$surname', semailid ='$mail', sphone = $phone,saddress = '$address'
-                            WHERE studentid = '$id'";
+                slname = '$surname', semailid ='$mail', sphone = $phone,saddress = '$address',
+                gender='$gender',university='$university',language='$language',class='$class',
+                subject='$subject'
+                WHERE studentId = '$id'";
+                // $query = "UPDATE student SET sfname = '$firstname',
+                //             slname = '$surname', semailid ='$mail', sphone = $phone,saddress = '$address'
+                //             WHERE studentid = '$id'";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                            ?>
+                            
+                ?>
                             <script type="text/javascript">
                     alert("Update Successfull.");
                     window.location = "studentProfile.php";

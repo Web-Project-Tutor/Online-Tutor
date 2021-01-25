@@ -105,8 +105,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
-                        <li><a href="studentRequest.php">Request</a></li>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="active"><a href="studentRequest.php">Request</a></li>
                         <li><a href="studentAccept.php">Accept</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
@@ -157,6 +157,7 @@
                     }
                     // $sid = $_SESSION['id'];
                     $teachID=$_SESSION["teacherid"];
+                    // echo $teachID;
                     
                     
                     // $sql = "SELECT * FROM connectTeacher where teacherId = $teachID";
@@ -167,62 +168,63 @@
                     
                     $result = $conn->query($sql);
 
-                    echo $_SESSION['teacherid'];
+                    // echo $_SESSION['teacherid'];
                     if ($result->num_rows > 0) {
                     // output data of each row
-                    $i=0;
+                        $i=0;
 
-                    while($row = $result->fetch_assoc()) {
-                        $i=$i+1;
+                        while($row = $result->fetch_assoc()) {
+                            $i=$i+1;
 
-                        echo "
+                            echo "
 
 
-                        <tr>  
-                        
-                        <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$i."</td>
-                        <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['studentId']."</td>
-                        <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['sfname']."</td>
-                        <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['location']."</td>
-                        <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['class']."</td>
-                        <td>
-                            <form action='' method = 'post'>
-                            <center>
-                                <input type = 'button' value='Accept' name='Accept'>
-                                <input type = 'button' value='Reject' name='Reject'> 
-                            </center>                    
-                            </form>
-                        </td>";
-                        
-                        
-                    }
-                    } else {
-                    echo "0 results";
+                            <tr>  
+                            
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$i."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['studentId']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['sfname']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['location']."</td>
+                            <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['class']."</td>
+                            <td>
+                                <form action='' method = 'post'>
+                                <center>
+                                    <input type = 'button' value='Accept' name='Accept'>
+                                    <input type = 'button' value='Reject' name='Reject'> 
+                                </center>                    
+                                </form>
+                            </td>";
+                            
+                            
+                        }
+                    } 
+                    else {
+                        echo "0 results";
                     }
                     $conn->close();
                 ?>
 
                 <!-- on press button -->
                 <?php 
-               $studId=$_SESSION['id'];
-               $teachId =$_SESSION['teacherid'];
+                    $studId=$_SESSION['id'];
+                    $teachId =$_SESSION['teacherid'];
 
-                if (isset($_POST["Accept"]))
-                {
-                     $sql = "UPDATE  connectTeacher SET studentId = $studId , teacherId=$teachId, response='accept'";
-                    if ($conn->query($sql) === TRUE) {
-                        echo '<script>alert("Record updated successfully")</script>'; 
-                    
-                        // echo "Record updated successfully";
-                    } else {
-                        echo '<script>alert("Error updating record:")</script>'; 
-                        // echo "Error updating record: " . $conn->error;
-                    }
-                    
-                    $conn->close();
+                    if (isset($_POST["Accept"]))
+                    {
+                        $sql = "UPDATE  connectTeacher SET studentId = $studId , teacherId=$teachId, response='accept'";
+                        if ($conn->query($sql) === TRUE) {
+                            echo '<script>alert("Record updated successfully")</script>'; 
+                        
+                            // echo "Record updated successfully";
+                        } else {
+                            echo '<script>alert("Error updating record:")</script>'; 
+                            // echo "Error updating record: " . $conn->error;
+                        }
+                        
+                        $conn->close();
 
-                    
-                }         
+                        
+                    }         
                 ?>
 
         </table>

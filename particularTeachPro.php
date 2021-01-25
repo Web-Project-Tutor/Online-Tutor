@@ -181,18 +181,29 @@ $row=mysqli_fetch_array($query); -->
                     $query = "SELECT * FROM teacher where teacherId = $particularTeacherID ";
                     $data =mysqli_query($conn, $query);
                     $result = mysqli_fetch_assoc($data);
-                    echo "<h4>Teacher ID:</h4>".  $result['teacherId'] ;
-                    echo "<h4>Name : </h4>". $result['tfname'] . $result['tlname'];
-                    echo "<h4>Gender:</h4>". $result['gender'];
-                    echo "<h4>EmailID:</h4>". $result['tmail'];
-                    echo "<h4>Phone Number:</h4>". $result['tphone'];
-                    echo "<h4>Address:</h4>". $result['taddress'];
-                    echo "<h4>location</h4>". $result['location'];
-                    echo "<h4>Class</h4>". $result['class'];
-                    echo "<h4>University</h4>". $result['university'];
-                    echo "<h4>Medium</h4>". $result['medium'];
-                    echo "<h4>Language:</h4>". $result['language'];
-                    echo "<h4>Exprience</h4>". $result['exprience'];                   
+                    // echo "<h4>Teacher ID:</h4>".  $result['teacherId'] ;
+                    // echo "<h4>Name : </h4>". $result['tfname'] . $result['tlname'];
+                    // echo "<h4>Gender:</h4>". $result['gender'];
+                    // echo "<h4>EmailID:</h4>". $result['tmail'];
+                    // echo "<h4>Phone Number:</h4>". $result['tphone'];
+                    // echo "<h4>Address:</h4>". $result['taddress'];
+                    // echo "<h4>location</h4>". $result['location'];
+                    // echo "<h4>Class</h4>". $result['class'];
+                    // echo "<h4>University</h4>". $result['university'];
+                    // echo "<h4>Medium</h4>". $result['medium'];
+                    // echo "<h4>Language:</h4>". $result['language'];
+                    // echo "<h4>Exprience</h4>". $result['exprience'];       
+                    echo "<b>Name : </b>". $result['tfname']. " ". $result['tlname'] ."<br><br>";
+                    echo "<b>Gender:</b>". $result['gender']. "<br><br>";
+                    echo "<b>EmailID:</b>". $result['tmail']."<br><br>";
+                    echo "<b>Phone Number:</b>". $result['tphone']. "<br><br>";
+                    echo "<b>Address:</b>". $result['taddress']."<br><br>";
+                    // echo "<h4>location</h4>". $result['location'];
+                    echo "<b>Class:</b>". $result['class']."<br><br>";
+                    echo "<b>University:</b>". $result['university']."<br><br>";
+                    // echo "<h4>Medium</h4>". $result['medium'];
+                    echo "<b>Language:</b>". $result['language']."<br><br>";
+                    echo "<b>Exprience:</b>". $result['exprience']."<br><br>";             
                             
 
                 ?>
@@ -216,7 +227,7 @@ $row=mysqli_fetch_array($query); -->
                     // $query = "UPDATE  connectTeacher SET teacherId = '$particularTeacher' , studentId = '$studId' , response ='request'";
                     $sql = "INSERT INTO connectTeacher (studentId, teacherId, response) VALUES ('$studId', '$particularTeacher', 'request')";
                     if ($conn->query($sql) === TRUE) {
-                        echo '<script>alert("Record updated successfully")</script>'; 
+                        echo '<script>alert("Request is send  successfully")</script>'; 
                     
                         // echo "Record updated successfully";
                     } else {

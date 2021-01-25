@@ -10,6 +10,51 @@
         
     </head>
     <body>
+
+
+
+    <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="max-width:50px; margin-top: 1px;" class="img-circle" src="assets/img/logo2.jpg">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavBar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li ><a href="studentListIndex.php">Request</a></li>
+                        <li  class="active"><a href="teacherAccept.php">Accept</a></li>
+                        <li ><a href="about.html">About</a></li>
+                    </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                        <div class="dropdown">
+                            <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
+                            
+                            <div class="dropdown-content">
+
+                                <li style="size: 250px;"><a href="teacherProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+                                
+                                
+                                
+                               
+                            </div>
+                        
+                        
+                        </div>
+
+                        </ul> 
+                </div>
+            </div>
+        </nav>
+
+
         <p> List Of All The Teacher</p>
         <table border="2" id = "tableId">
             <tr>

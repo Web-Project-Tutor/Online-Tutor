@@ -105,7 +105,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li><a href="home.php">Home</a></li>
+                        <li><a href="teachHome.php">Home</a></li>
                         <li><a href="studentRequest.php">Request</a></li>
                         <li class="active"><a href="studentAccept.php">Accept</a></li>
                         <li ><a href="about.html">About</a></li>
@@ -167,7 +167,7 @@
                     
                     $result = $conn->query($sql);
 
-                    echo $_SESSION['teacherid'];
+                    // echo $_SESSION['teacherid'];
                     if ($result->num_rows > 0) {
                     // output data of each row
                         $i=0;

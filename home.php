@@ -27,6 +27,18 @@
             }
 
             #foot{
+                margin-top: 50px;                
+                background-color:rgb(0, 0, 0)  ; 
+                color: #fff;
+                text-align: center;
+                font-weight: var(--font-semi);
+                height: 100px;
+
+            
+
+            }
+
+            /* #foot{
                 width: 100%;
                 margin-top: 50px;                
                 background-color:rgb(0, 0, 0)  ; 
@@ -35,11 +47,9 @@
                 font-weight: var(--font-semi);
                 height: 100px;
                 bottom: 0px;
-                position: absolute;
+                position: absolute;           
 
-            
-
-            }
+            } */
             #photoDetail{
                 margin-top: 50px;  
 
@@ -77,10 +87,14 @@
                 padding: 15px;
                 text-align: center;
                 }
+                .design{
+                    margin:15px;
+                    text-align: center;
+                }
 
         </style>
         <link rel="stylesheet" href="assets/css/navBarStyle.css">
-        <link rel="stylesheet" href="assets/css/footer.css">
+        <!-- <link rel="stylesheet" href="assets/css/footer.css"> -->
          <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -104,7 +118,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
+                        <li class="active"><a href="home.php">Home</a></li>
                         <!-- <li><a href="finding/findStudent.php">Student</a></li> -->
                         <li><a href="connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
@@ -136,9 +150,200 @@
                 </div>
             </div>
         </nav>
-        <?php
-            echo $_SESSION['id'];
-        ?>
+            
+        <FONT COLOR="#660000" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" SIZE="5"><MARQUEE>AS YOU KNOW MORE YOU LEARN MORE</MARQUEE></FONT>
+            
+        <br><br><br><br><br><br><br><br>
+
+
+                
+
+
+
+
+        <div id="slideshow">
+            <div>
+              <img src="assets/img/slider/img01.jpeg" width="600" height="400">
+            </div>
+
+            <div>
+              <img src="assets/img/slider/img02.jpeg" width="600" height="400">
+            </div>
+
+            <div>
+                <img src="assets/img/slider/img03.jpeg" width="600" height="400">
+            </div>
+
+            <div>
+                <img src="assets/img/slider/img04.png" width="600" height="400">
+            </div>
+
+            <div>
+                <img src="assets/img/slider/img05.jpg" width="600" height="400">
+            </div>
+
+            <div>
+                <img src="assets/img/slider/img06.jpg" width="600" height="400">
+            </div>
+
+        </div>
+
+
+
+
+        <div class="container" id="aboutContainer">
+                <div class="row">
+                    <div class="col-sm-6"> 
+                        <h3>Education is not a privilege,It is your Right !</h3>
+                        <ul>
+                            <li>Home Tuitions</li>
+                            <li>Online Tuitions</li>
+                            <li>Exam Preparation / Mock Tests</li>
+                        </ul> 
+                    </div>
+                    <div clsss ="col-sm-6">
+                        <img src="assets/img/OnlineTeach1.jpg" alt="About Picture" width="425px" height="250px">
+    
+                    </div>
+                </div>
+            </div>
+
+        <div class="design">
+            <div class="container">
+
+                <div class="row" style="padding:25px;"> 
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-8">
+                        <centrr><h1>Find Tutors From Your State</h1></centre>
+                            
+                        <br><br>
+                    </div>
+                </div>
+                <div class="row" style="padding-left:25px;">
+                    <div class="col-md-1">
+
+                    </div>
+                        <div class="col-md-8">
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Looking for a Tutor from your own state?
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;Just click on the name of your state from the list below and meet all them at one place.
+                            
+                            </h4>
+                             
+                            <br><br>
+                        </div>
+                    </div>
+               </div>
+
+
+               <br><br><br>
+                <div class="container">
+                    <div class="row">
+                        
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li>Uttar Pradesh</li>
+                                <li>Delhi</li>
+                                <li>West Bengal</li>
+                                <li>Maharashtra</li>
+                                <li>Karnataka</li>
+                                <li>Tamil Nadu</li>
+                                <li>Telangana</li>
+                                <li>Rajasthan</li>                                
+                            </ul>
+                        </div>
+
+
+
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+     
+         
+        
+        <style>
+            #slideshow {
+                margin: 60px auto;
+                margin-right: 30%;
+                position: relative;
+                width: 240px;
+                height: 240px;
+                padding: 10px;
+                /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
+            }
+
+            #slideshow > div {
+                        position: absolute;
+                        /* top: 1px; */
+                        /* left: 10px; */
+                        right: 10px;
+                        bottom: 10px;
+            }
+        </style>
+
+        <script>
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function() {
+            $('#slideshow > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshow');
+            }, 3000);
+        </script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+            <!-- echo $_SESSION['id']; -->
+        
 
 
         <!-- footer -->
