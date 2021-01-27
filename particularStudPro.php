@@ -128,7 +128,7 @@
         
     </head>
     <body style="background-color: rgb(189, 189, 189);">
-        <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
@@ -142,19 +142,35 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li ><a href="teachHome.php">Home</a></li>
-                        <li><a href="studentRequest.php">Request</a></li>
+                        <li class="active"><a href="teachHome.php">Home</a></li>
                         <li><a href="studentAccept.php">Accept</a></li>
-                        <li ><a href="about.html">About</a></li>
-                        <!-- <li><a href="teachHome.php">Home</a></li>
                         
-                        <li><a href="connectTeach.php">Faculty</a></li>
-                        <li ><a href="about.html">About</a></li> -->
+                        <li ><a href="about.html">About</a></li>
                     </ul>
-                     
+                     <ul class="nav navbar-nav navbar-right">
+                     <a href="studentRequest.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                         
+                        <div class="dropdown">
+                           <img src="assets/img/avatar.png" alt="Avatar" class="avatar" style="font-size:20px;margin-right:20px;margin-bottom:10px">
+                            
+                            <div class="dropdown-content">
+
+                                <li style="size: 250px;"><a href="teaherProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+                                
+                                
+                                
+                               
+                            </div>
+                        
+                        
+                        </div>
+
+                        </ul> 
                 </div>
             </div>
         </nav>
+        
 
 
         <!-- MY Profile Heading -->
@@ -162,7 +178,7 @@
 
         <div class="container" style="background-color: white; ">
             <div class="row">
-                <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 0, 0); margin-left:20px ;">Teacher Profile</h1>
+                <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 0, 0); margin-left:20px ;">Student Profile</h1>
             </div>
         </div>
 
@@ -184,25 +200,26 @@
                     $query = "SELECT * FROM student where studentId =  $particularStudentID";
                     $data =mysqli_query($conn, $query);
                     $result = mysqli_fetch_assoc($data);
-                    echo "<h4>Student ID:</h4>".  $result['studentId'] ;
-                    echo "<h4>Name : </h4>". $result['sfname'] . $result['slname'];
-                    echo "<h4>Gender:</h4>". $result['gender'];
-                    echo "<h4>EmailID:</h4>". $result['semailid'];
-                    echo "<h4>Phone Number:</h4>". $result['sphone'];
-                    echo "<h4>Address:</h4>". $result['saddress'];
-                    echo "<h4>location</h4>". $result['location'];
-                    echo "<h4>Class</h4>". $result['class'];
-                    echo "<h4>University</h4>". $result['university'];
-                    echo "<h4>Language:</h4>". $result['language'];                
-                            
+                    echo "<div style='margin-left: 330px;'>"  ;
+                    echo "<b style='font-size:15px'>Student ID  :  </b>".  $result['studentId'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Name :  </b>". $result['sfname'] . $result['slname']."<br><br>";
+                    echo "<b style='font-size:15px'>Gender :  </b>". $result['gender'] ."<br><br>";
+                    echo "<b style='font-size:15px'>EmailID :  </b>". $result['semailid'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Phone Number :  </b>". $result['sphone'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Address :  </b>". $result['saddress']."<br><br>";
+                    echo "<b style='font-size:15px'>location :  </b>". $result['location'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Class :  </b>". $result['class']."<br><br>";
+                    echo "<b style='font-size:15px'>University :  </b>". $result['university']."<br><br>";
+                    echo "<b style='font-size:15px'>Language :  </b>". $result['language']."<br><br>";                
+                    echo "</div>";     
 
                 ?>
             </div>
 
-            <div class="row" >
+            <div class="row"  style='margin-left: 330px;'>
                 <form action = "" method ="post">
-                    <input type="submit" value = "accept" name="accept" class="btn btn-primary btn-lg" id="buttonStyle" />
-                    <input type="submit" value = "reject" name="reject" class="btn btn-primary btn-lg" id="buttonStyle" />
+                    <input type="submit" value = "Accept" name="accept" class="btn btn-primary btn-lg" id="buttonStyle" />
+                    <input type="submit" value = "Reject" name="reject" class="btn btn-primary btn-lg" id="buttonStyle" />
                 </form>
             </div>
 
@@ -254,7 +271,7 @@
 
                     
                 }         
-                ?>
+            ?>
 
         </div>
         <!-- footer -->

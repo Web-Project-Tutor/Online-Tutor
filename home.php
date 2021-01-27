@@ -9,6 +9,19 @@
         <meta charset ="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".notification_icon .fa-bell").click(function(){
+                    $(".dropdown").toggleClass("active");
+                })
+            });
+        </script>
+        
+        
+        
         <style>
 
             .imgCenter{
@@ -38,18 +51,6 @@
 
             }
 
-            /* #foot{
-                width: 100%;
-                margin-top: 50px;                
-                background-color:rgb(0, 0, 0)  ; 
-                color: #fff;
-                text-align: center;
-                font-weight: var(--font-semi);
-                height: 100px;
-                bottom: 0px;
-                position: absolute;           
-
-            } */
             #photoDetail{
                 margin-top: 50px;  
 
@@ -72,11 +73,15 @@
                 position: absolute;
                 background-color: #f9f9f9;
                 margin-right: 10px;
-                min-width: 180px;
+                /* min-width: 180px;
                 /* height: 100px; */
-                
+                min-width: 160px; */
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                /* padding: 12px 16px;
                 z-index: 1;
+                
+                /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1; */ */
                 }
 
                 .dropdown:hover .dropdown-content {
@@ -92,13 +97,13 @@
                     text-align: center;
                 }
 
+
+
+
+
         </style>
         <link rel="stylesheet" href="assets/css/navBarStyle.css">
-        <!-- <link rel="stylesheet" href="assets/css/footer.css"> -->
-         <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-        
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         
@@ -119,34 +124,27 @@
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="home.php">Home</a></li>
-                        <!-- <li><a href="finding/findStudent.php">Student</a></li> -->
                         <li><a href="connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
-                     <ul class="nav navbar-nav navbar-right">
-                        <div class="dropdown">
-                            <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
-                            
-                            <div class="dropdown-content">
 
+
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                    <a href="teacherAccepted.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                        
+                        <div class="dropdown">
+
+                            <span><img src="assets/img/avatar.png" alt="Avatar" class="avatar" style="font-size:20px;margin-right:20px;margin-bottom:10px">                            
+                            </span>
+                            <div class="dropdown-content">
                                 <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                                 <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
-                                
-                                
-                                
-                                <!-- <li style="size: 250px;"><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> 
-                                 -->
-                     
-
                             </div>
-                        
-                        
                         </div>
-
-                        <!-- <img src="assets/img/avatar.png" alt="Avatar" class="avatar"> -->
-                        <!-- <li><a href="authentication/registration/register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                        <li><a href="authentication/signIn_SignOut/login.html"><span class="glyphicon glyphicon-log-out"></span> Login</a></li> --> -->
-                     </ul> 
+                    </ul> 
+                    
                 </div>
             </div>
         </nav>
@@ -179,11 +177,11 @@
             </div>
 
             <div>
-                <img src="assets/img/slider/img05.jpg" width="600" height="400">
+                <img src="assets/img/OnlineTeach.jpg" width="600" height="400">
             </div>
 
             <div>
-                <img src="assets/img/slider/img06.jpg" width="600" height="400">
+                <img src="assets/img/OnlineTeach1.jpg" width="600" height="400">
             </div>
 
         </div>

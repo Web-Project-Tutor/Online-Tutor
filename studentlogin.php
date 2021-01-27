@@ -16,7 +16,7 @@ if(isset($_POST['smail'])){
     $num_rows=mysqli_num_rows($query);
     $row=mysqli_fetch_array($query);
     $_SESSION["id"]=$row['studentId'];
-
+    $_SESSION["studentid"]=$row['studentId'];
 
     
     if ($num_rows>0)

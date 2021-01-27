@@ -105,12 +105,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li><a href="teachHome.php">Home</a></li>
-                        <!-- <li><a href="studentRequest.php">Request</a></li> -->
-                        <li class="active"><a href="studentAccept.php">Accept</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="connectTeach.php">Faculty</a></li>
+                        
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
+                        <a href="teacherAccepted.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                       
                         <div class="dropdown">
                             <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
                             
@@ -132,12 +134,13 @@
             </div>
         </nav>
        
+        <h4 style =" text-align: center; font-family: 'Times New Roman', Times, serif; font-style: oblique;font-size:35px">Tutor Accepted List</h4>
 
         <table border="2" id = "tableId">
-            <tr>
+            <tr style="text-align:center">
                 <th style="text-align:center"> Sl.no </th>
-                <th style="text-align:center">Student Id</th>
-                <th style="text-align:center">Student Name </th>
+                <th style="text-align:center">Teacher Id</th>
+                <th style="text-align:center">Teacher Name </th>
                 <th style="text-align:center">Location</th>
                 <th style="text-align:center">Class</th>
                 
@@ -156,13 +159,13 @@
                     die("Connection failed: " . $conn->connect_error);
                     }
                     // $sid = $_SESSION['id'];
-                    $teachID=$_SESSION["teacherid"];
+                    $studID=$_SESSION["studentid"];
                     
                     
                     // $sql = "SELECT * FROM connectTeacher where teacherId = $teachID";
 
 
-                    $sql = "SELECT * FROM student s, connectTeacher c where s.studentId = c.studentId and  c.teacherId = $teachID and response = 'accept' ";
+                    $sql = "SELECT * FROM teacher t, connectTeacher c where t.teacherId = c.teacherId and  c.studentId = $studID and response = 'accept' ";
                     
                     
                     $result = $conn->query($sql);
@@ -174,17 +177,18 @@
 
                         while($row = $result->fetch_assoc()) {
                             $i=$i+1;
+                            
 
                             echo "
 
 
                             <tr>  
                             
-                            <td onclick=\"window.location='detailStud.php?id=".$row["studentId"]."'\">".$i."</td>
-                            <td onclick=\"window.location='detailStud.php?id=".$row["studentId"]."'\">".$row['studentId']."</td>
-                            <td onclick=\"window.location='detailStud.php?id=".$row["studentId"]."'\">".$row['sfname']."</td>
-                            <td onclick=\"window.location='detailStud.php?id=".$row["studentId"]."'\">".$row['location']."</td>
-                            <td onclick=\"window.location='detailStud.php?id=".$row["studentId"]."'\">".$row['class']."</td>
+                            <td onclick=\"window.location='detailTeacher.php?id=".$row["teacherId"]."'\">".$i."</td>
+                            <td onclick=\"window.location='detailTeacher.php?id=".$row["teacherId"]."'\">".$row['teacherId']."</td>
+                            <td onclick=\"window.location='detailTeacher.php?id=".$row["teacherId"]."'\">".$row['tfname']."</td>
+                            <td onclick=\"window.location='detailTeacher.php?id=".$row["teacherId"]."'\">".$row['location']."</td>
+                            <td onclick=\"window.location='detailTeacher.php?id=".$row["teacherId"]."'\">".$row['class']."</td>
         
                             </tr>";
                             
@@ -192,7 +196,7 @@
                         }
                     } 
                     else {
-                        echo "0 results";
+                        echo "<h3 style='text-align:center'>No results Found </h3>";
                     }
                     $conn->close();
                 ?>

@@ -8,6 +8,7 @@
         <meta charset ="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
 
             .imgCenter{
@@ -116,14 +117,16 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="home.html">Home</a></li>
-                        <li><a href="studentRequest.php">Request</a></li>
+                        <li class="active"><a href="teachHome.php">Home</a></li>
                         <li><a href="studentAccept.php">Accept</a></li>
+                        
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
+                     <a href="studentRequest.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                         
                         <div class="dropdown">
-                            <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
+                           <img src="assets/img/avatar.png" alt="Avatar" class="avatar" style="font-size:20px;margin-right:20px;margin-bottom:10px">
                             
                             <div class="dropdown-content">
 

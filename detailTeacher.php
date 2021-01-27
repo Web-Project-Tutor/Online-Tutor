@@ -3,8 +3,8 @@
 <?php
      session_start();
             
-     $particularTeacherID =  $_GET['id'];
-     $_SESSION['particularTeacherID']=$particularTeacherID;
+     $DetailTeacherID =  $_GET['id'];
+     $_SESSION['DetailTeacherID']=$DetailTeacherID;
      
 
      $servername = "localhost";
@@ -18,8 +18,8 @@
      if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
      }
-     $particularTeacher= $_SESSION['particularTeacherID'];
-     $studId = $_SESSION['id'];
+     $DetailTeacherID = $_SESSION['DetailTeacherID'];
+     $studId = $_SESSION['studentid'];
 
 
 ?>
@@ -175,7 +175,7 @@
             <div class="row" id="detail">
                 <?php         
                                 
-                    $query = "SELECT * FROM teacher where teacherId = $particularTeacherID ";
+                    $query = "SELECT * FROM teacher where teacherId = $DetailTeacherID ";
                     $data =mysqli_query($conn, $query);
                     $result = mysqli_fetch_assoc($data);
                     // echo "<h4>Teacher ID:</h4>".  $result['teacherId'] ;
@@ -208,37 +208,7 @@
                 ?>
             </div>
 
-            <div class="row" >
-                <form action = "" method ="post">
-                    <input type="submit" value = "Request" name="request" class="btn btn-primary btn-lg" id="buttonStyle"  style='margin-left: 330px;'/>
-                </form>
-            </div>
-
-
-
-            <!-- on press button -->
-            <?php 
-
-                if (isset($_POST["request"]))
-                {
-                    
-                    // echo '<script>alert("Sent a request")</script>'; 
-                    // $query = "UPDATE  connectTeacher SET teacherId = '$particularTeacher' , studentId = '$studId' , response ='request'";
-                    $sql = "INSERT INTO connectTeacher (studentId, teacherId, response) VALUES ('$studId', '$particularTeacher', 'request')";
-                    if ($conn->query($sql) === TRUE) {
-                        echo '<script>alert("Request is send  successfully")</script>'; 
-                    
-                        // echo "Record updated successfully";
-                    } else {
-                        echo '<script>alert("Error updating record:")</script>'; 
-                        // echo "Error updating record: " . $conn->error;
-                    }
-                    
-                    $conn->close();
-    
-                    
-                }         
-            ?>
+        
 
 
         </div>

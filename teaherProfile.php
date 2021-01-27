@@ -169,113 +169,95 @@ $row=mysqli_fetch_array($query);
             <div class="container">
                 <div class="row">
                     <div style="margin-left: 35%;">
-                        <h3>Account:</h3>
-                        <h4>Personal Info</h4>
+                        <h4 style ="text-transform: capitalize;"><b>Account : </b> <?php echo $row['tfname'] . ' '. $row['tlname']  ; ?> </h4>
+                        <!-- <h4>Personal Info</h4> -->
                     </div>
                 </div>
             </div>
 
-            <h1>User Profile</h1>
-            <div class="profile-input-field">
+            
+            <div class="profile-input-field" style='margin-left: 400px;'>
                 <h3>Please Fill-out All Fields</h3>
                 <form method="post" action="#" >
 
-          <div class="form-group">
-            <label>Firstname</label>
-            <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['tfname']; ?>" required />
-          </div>
+                <div class="form-group">
+                  <label>Firstname</label>
+                  <input type="text" class="form-control" name="fname" style="width:20em;" placeholder="Enter your First Name" value="<?php echo $row['tfname']; ?>" required />
+                </div>
 
-          <div class="form-group">
-            <label>Surname</label>
-            <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['tlname']; ?>" required />
-          </div>
-
-
-
-          <div class="form-group">
-            <label>Mail</label>
-            <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['tmail']; ?>" required />
-          </div>
-
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['tphone']; ?>" required />
-          </div>
-
-          <div class="form-group">
-            <label>Address</label>
-            <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['taddress']; ?>"></textarea>
-          </div>
+                <div class="form-group">
+                  <label>Surname</label>
+                  <input type="text" class="form-control" name="sname" style="width:20em;" placeholder="Enter your Surname" value="<?php echo $row['tlname']; ?>" required />
+                </div>
 
 
 
+                <div class="form-group">
+                  <label>Mail</label>
+                  <input type="text" class="form-control" name="mail" style="width:20em;" placeholder="Enter your mail" value="<?php echo $row['tmail']; ?>" required />
+                </div>
 
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="text" class="form-control" name="phone" style="width:20em;" placeholder="Enter your Phone Number" value="<?php echo $row['tphone']; ?>" required />
+                </div>
 
-          <div class="form-group">
-            <label>University</label>
-            <input type="text" class="form-control" name="uni" style="width:20em;" required placeholder="Enter your University" value="<?php echo $row['university']; ?>"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Class</label>
-            <input type="text" class="form-control" name="cla" style="width:20em;" required placeholder="Enter your class which you take" value="<?php echo $row['class']; ?>"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Language</label>
-            <input type="text" class="form-control" name="lan" style="width:20em;" required placeholder="Enter language" value="<?php echo $row['language']; ?>"></textarea>
-          </div>
-
-         
-
-          <div class="form-group">
-            <label>Experience</label>
-            <input type="text" class="form-control" name="exp" style="width:20em;" required placeholder="Enter your Experience" value="<?php echo $row['exprience']; ?>"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Gender</label>
-            <input type="text" class="form-control" name="gen" style="width:20em;" required placeholder="Enter your gender" value="<?php echo $row['gender']; ?>"></textarea>
-          </div>
-
-          
-          <div class="form-group">
-            <label>Subject Name</label>
-            <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['tsubject']; ?>"></textarea>
-          </div>
+                <div class="form-group">
+                  <label>Address</label>
+                  <input type="text" class="form-control" name="address" style="width:20em;" required placeholder="Enter your Address" value="<?php echo $row['taddress']; ?>"></textarea>
+                </div>
 
 
 
 
 
-          <div class="form-group">
-            <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
-            <center>
-             <a href="logout.php">Log out</a>
-           </center>
-          </div>
+                <div class="form-group">
+                  <label>University</label>
+                  <input type="text" class="form-control" name="uni" style="width:20em;" required placeholder="Enter your University" value="<?php echo $row['university']; ?>"></textarea>
+                </div>
 
-        </form>
+                <div class="form-group">
+                  <label>Class</label>
+                  <input type="text" class="form-control" name="cla" style="width:20em;" required placeholder="Enter your class which you take" value="<?php echo $row['class']; ?>"></textarea>
+                </div>
 
-        
+                <div class="form-group">
+                  <label>Language</label>
+                  <input type="text" class="form-control" name="lan" style="width:20em;" required placeholder="Enter language" value="<?php echo $row['language']; ?>"></textarea>
+                </div>
+
+              
+
+                <div class="form-group">
+                  <label>Experience</label>
+                  <input type="text" class="form-control" name="exp" style="width:20em;" required placeholder="Enter your Experience" value="<?php echo $row['exprience']; ?>"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Gender</label>
+                  <input type="text" class="form-control" name="gen" style="width:20em;" required placeholder="Enter your gender" value="<?php echo $row['gender']; ?>"></textarea>
+                </div>
+
+                
+                <div class="form-group">
+                  <label>Subject Name</label>
+                  <input type="text" class="form-control" name="sub" style="width:20em;" required placeholder="Enter your Subject Name" value="<?php echo $row['tsubject']; ?>"></textarea>
+                </div>
 
 
 
 
 
+                <div class="form-group">
+                  <input type="submit" name="submit" class="btn btn-primary" style="width:20em; margin:0;"><br><br>
+                  
 
+                  <a href="logout.php"><input type="button" name="submit" class="btn btn-primary" style="width:20em; margin:0;" value="Log Out"> </a>
+                  <br><br>
+            </div>
 
-
-
-
-
-
-
-
-
-
-        
-      </div>
+        </form>    
+        </div>
       </html>
       <?php
       if(isset($_POST['submit']))

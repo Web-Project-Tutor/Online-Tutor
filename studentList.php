@@ -1,5 +1,10 @@
 <html>
     <head>
+        
+        
+        
+        
+
         <meta charset ="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -23,14 +28,12 @@
             }
 
             #foot{
-                width: 100%;
                 margin-top: 50px;                
                 background-color:rgb(0, 0, 0)  ; 
                 color: #fff;
                 text-align: center;
                 font-weight: var(--font-semi);
                 height: 100px;
-                bottom: 0px;
 
             
 
@@ -39,44 +42,6 @@
                 margin-top: 50px;  
 
             }
-
-
-            .avatar {
-                vertical-align: middle;
-                width: 35px;
-                height: 35px;
-                border-radius: 50%;
-                margin-top: 8px;
-            }
-
-            .dropdown{
-                position: relative;
-                display: inline-block;
-            }
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: #f9f9f9;
-                margin-right: 10px;
-                min-width: 180px;
-                /* height: 100px; */
-                
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-                }
-
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-
-            .desc {
-                padding: 15px;
-                text-align: center;
-            }
-            .row{
-                margin:25px;
-            }            
-
 
         </style>
 
@@ -110,26 +75,18 @@
                     </div>
                     <div class="collapse navbar-collapse" id="myNavBar">
                         <ul class="nav navbar-nav">
-                            <li ><a href="home.php">Home</a></li>
-                            
-                            <li  class="active"><a href="connectTeach.php">Faculty</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active"><a href="studentList.php">Student</a></li>
+                            <li><a href="teacherList.php">Faculty</a></li>
                             <li ><a href="about.html">About</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                        <a href="teacherAccepted.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
-                       
-                        <div class="dropdown">
-                            <span><img src="assets/img/avatar.png" alt="Avatar" class="avatar" style="font-size:20px;margin-right:20px;margin-bottom:10px">                            
-                            </span>
-                            <div class="dropdown-content">
-                                <li style="size: 250px;"><a href="studentProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                                <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
-                            </div>
-                        </div>
-                    </ul> 
+                            <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
                     </div>
                 </div>
-        </nav>
+            </nav>
 
    
 
@@ -151,9 +108,9 @@
             <h3>Sort By:
                 <select name = "field" style="font-size: 15px;">
                     <option value="" disabled selected>Choose Field</option>
-                    <option value="tfname"> First Name </option>
-                    <option value="tlname"> Last Name </option>
-                    <option value="tmail"> Emailid </option>
+                    <option value="sfname"> First Name </option>
+                    <option value="slname"> Last Name </option>
+                    <option value="semailid"> Emailid </option>
                 </select>
             </h3>
             <h3>
@@ -206,7 +163,7 @@
             // }
             // $sid = $_SESSION['id'];
                     
-            $str = "SELECT * FROM teacher";
+            $str = "SELECT * FROM student";
             
             $res = mysqli_query($sql, $str);
             
@@ -224,7 +181,7 @@
             {
                 $field = $_POST['field'];
                 
-                $original = array_column($myarr, $field, 'teacherId');
+                $original = array_column($myarr, $field, 'studentId');
                 // Create Associate array with (key,value)=('id',$feild)
 				$orginalKey=array_keys($original);
 				$originalVal=array_values($original);
@@ -233,7 +190,7 @@
                 
                 foreach($sortedkeys as $key)
                 {
-                    $str ="select * from teacher WHERE teacherId= '$key' ";
+                    $str ="select * from student WHERE studentId= '$key' ";
                     $res = mysqli_query($sql, $str);
                     $myarr[] = mysqli_fetch_assoc($res);
                     // echo $myarr;
@@ -255,25 +212,33 @@
        
             </tr>
 
-            <?php 
-            $i=0; 
-            foreach ($myarr as $arr):
-                $i=$i+1;
-            $_SESSION["particularTeacher"]=$arr['teacherId'];
-
-            echo "
-                                    
-            <tr  onclick=\"window.location='particularTeachPro.php?id=".$arr["teacherId"]."'\">           
-            <td>".$i."</td>
-            <td>".$arr['tfname']."</td>
-            <td>".$arr['tlname']."</td>
-            <td>".$arr['tmail']."</td></a></tr> ";
-
-
-?>
-           
+            <?php foreach ($myarr as $arr): ?>
+            <tr>
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $arr['sfname']; ?></td>
+                <td><?php echo $arr['slname']; ?></td>
+                <td><?php echo $arr['semailid']; ?></td>
+            </tr>
             <?php endforeach; ?>
         </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </body>
@@ -285,3 +250,4 @@
 
 
 
+       

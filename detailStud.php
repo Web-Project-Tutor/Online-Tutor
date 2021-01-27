@@ -1,10 +1,11 @@
 
-
 <?php
-     session_start();
+    session_start();
             
-     $particularTeacherID =  $_GET['id'];
-     $_SESSION['particularTeacherID']=$particularTeacherID;
+    $particularStudentID =  $_GET['id'];
+    $teachId = $_SESSION['teacherid'];
+     
+     $_SESSION['particularStudentID']=$particularStudentID;
      
 
      $servername = "localhost";
@@ -12,14 +13,17 @@
      $password = "";
      $dbname = "userreg";
 
+    // echo $particularStudentID;
+    // echo $teachID;
      // Create connection
      $conn = new mysqli($servername, $username, $password, $dbname);
      // Check connection
      if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
      }
-     $particularTeacher= $_SESSION['particularTeacherID'];
-     $studId = $_SESSION['id'];
+    //  $particularStudentID= $_SESSION['particularStudentID'];
+     
+     
 
 
 ?>
@@ -32,9 +36,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <style>
-            .divStyle{
-                text-align:center;
-            }
             #buttonStyle{
                 align:center;
                 width:35%;
@@ -43,6 +44,7 @@
             }
             #detail{
                 margin-left:85px;
+                height:100%;
                 
 
             }
@@ -50,7 +52,7 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                width: 600px;
+                width: 800px;
                 height: 400px;
             }
 
@@ -126,7 +128,7 @@
         
     </head>
     <body style="background-color: rgb(189, 189, 189);">
-        <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
@@ -140,15 +142,35 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
-                        <li><a href="home.php">Home</a></li>
+                        <li class="active"><a href="teachHome.php">Home</a></li>
+                        <li><a href="studentAccept.php">Accept</a></li>
                         
-                        <li><a href="connectTeach.php">Faculty</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
-                     
+                     <ul class="nav navbar-nav navbar-right">
+                     <a href="studentRequest.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                         
+                        <div class="dropdown">
+                           <img src="assets/img/avatar.png" alt="Avatar" class="avatar" style="font-size:20px;margin-right:20px;margin-bottom:10px">
+                            
+                            <div class="dropdown-content">
+
+                                <li style="size: 250px;"><a href="teaherProfile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li style="size: 250px;"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+                                
+                                
+                                
+                               
+                            </div>
+                        
+                        
+                        </div>
+
+                        </ul> 
                 </div>
             </div>
         </nav>
+        
 
 
         <!-- MY Profile Heading -->
@@ -156,11 +178,11 @@
 
         <div class="container" style="background-color: white; ">
             <div class="row">
-                <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 0, 0); margin-left:20px ;">Teacher Profile</h1>
+                <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(0, 0, 0); margin-left:20px ;">Student Profile</h1>
             </div>
         </div>
 
-        <div class="container" style = "background-color:white; margin-top: 20px; height: 100%; ">
+        <div class="container" style = "background-color:white; margin-top: 20px;">
                 
             <!-- Profile Pic -->
             <div class= "row">
@@ -174,72 +196,28 @@
             <!-- php code -->
             <div class="row" id="detail">
                 <?php         
-                                
-                    $query = "SELECT * FROM teacher where teacherId = $particularTeacherID ";
+                            
+                    $query = "SELECT * FROM student where studentId =  $particularStudentID";
                     $data =mysqli_query($conn, $query);
                     $result = mysqli_fetch_assoc($data);
-                    // echo "<h4>Teacher ID:</h4>".  $result['teacherId'] ;
-                    // echo "<h4>Name : </h4>". $result['tfname'] . $result['tlname'];
-                    // echo "<h4>Gender:</h4>". $result['gender'];
-                    // echo "<h4>EmailID:</h4>". $result['tmail'];
-                    // echo "<h4>Phone Number:</h4>". $result['tphone'];
-                    // echo "<h4>Address:</h4>". $result['taddress'];
-                    // echo "<h4>location</h4>". $result['location'];
-                    // echo "<h4>Class</h4>". $result['class'];
-                    // echo "<h4>University</h4>". $result['university'];
-                    // echo "<h4>Medium</h4>". $result['medium'];
-                    // echo "<h4>Language:</h4>". $result['language'];
-                    // echo "<h4>Exprience</h4>". $result['exprience'];   
                     echo "<div style='margin-left: 330px;'>"  ;
-                    echo "<b style='font-size:15px'>Name :  </b>". $result['tfname']. " ". $result['tlname'] ."<br><br>";
-                    echo "<b style='font-size:15px'>Gender  :  </b>". $result['gender']. "<br><br>";
-                    echo "<b style='font-size:15px'>EmailID  :  </b>". $result['tmail']."<br><br>";
-                    echo "<b style='font-size:15px'>Phone Number : </b>". $result['tphone']. "<br><br>";
-                    echo "<b style='font-size:15px'>Address :  </b>". $result['taddress']."<br><br>";
-                    // echo  style='font-size:15px'"<h4>location</h4>". $result['location'];
+                    echo "<b style='font-size:15px'>Student ID  :  </b>".  $result['studentId'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Name :  </b>". $result['sfname'] . $result['slname']."<br><br>";
+                    echo "<b style='font-size:15px'>Gender :  </b>". $result['gender'] ."<br><br>";
+                    echo "<b style='font-size:15px'>EmailID :  </b>". $result['semailid'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Phone Number :  </b>". $result['sphone'] ."<br><br>";
+                    echo "<b style='font-size:15px'>Address :  </b>". $result['saddress']."<br><br>";
+                    echo "<b style='font-size:15px'>location :  </b>". $result['location'] ."<br><br>";
                     echo "<b style='font-size:15px'>Class :  </b>". $result['class']."<br><br>";
-                    echo "<b style='font-size:15px'>University  :  </b>". $result['university']."<br><br>";
-                    // echo  style='font-size:15px'"<h4>Medium</h4>". $result['medium'];
-                    echo "<b style='font-size:15px'>Language  :  </b>". $result['language']."<br><br>";
-                    echo "<b style='font-size:15px'>Exprience :  </b>". $result['exprience']."<br><br>";    
+                    echo "<b style='font-size:15px'>University :  </b>". $result['university']."<br><br>";
+                    echo "<b style='font-size:15px'>Language :  </b>". $result['language']."<br><br>";                
                     echo "</div>";     
-                            
 
                 ?>
             </div>
 
-            <div class="row" >
-                <form action = "" method ="post">
-                    <input type="submit" value = "Request" name="request" class="btn btn-primary btn-lg" id="buttonStyle"  style='margin-left: 330px;'/>
-                </form>
-            </div>
-
-
-
-            <!-- on press button -->
-            <?php 
-
-                if (isset($_POST["request"]))
-                {
-                    
-                    // echo '<script>alert("Sent a request")</script>'; 
-                    // $query = "UPDATE  connectTeacher SET teacherId = '$particularTeacher' , studentId = '$studId' , response ='request'";
-                    $sql = "INSERT INTO connectTeacher (studentId, teacherId, response) VALUES ('$studId', '$particularTeacher', 'request')";
-                    if ($conn->query($sql) === TRUE) {
-                        echo '<script>alert("Request is send  successfully")</script>'; 
-                    
-                        // echo "Record updated successfully";
-                    } else {
-                        echo '<script>alert("Error updating record:")</script>'; 
-                        // echo "Error updating record: " . $conn->error;
-                    }
-                    
-                    $conn->close();
-    
-                    
-                }         
-            ?>
-
+            
+            
 
         </div>
         <!-- footer -->

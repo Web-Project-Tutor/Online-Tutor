@@ -106,11 +106,13 @@
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.html">Home</a></li>
-                        <li class="active"><a href="studentRequest.php">Request</a></li>
+                        <!-- <li class="active"><a href="studentRequest.php">Request</a></li> -->
                         <li><a href="studentAccept.php">Accept</a></li>
                         <li ><a href="about.html">About</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
+                     <a href="studentRequest.php"><i class="fa fa-bell" style="font-size:20px;color:white; margin-right:10px;margin-top:15px"></i></a>
+                        
                         <div class="dropdown">
                             <img src="assets/img/avatar.png" alt="Avatar" class="avatar">
                             
@@ -135,12 +137,12 @@
 
         <table border="2" id = "tableId">
             <tr>
-                <th> Sl.no </th>
-                <th>Student Id</th>
-                <th>Student Name </th>
-                <th>Location</th>
-                <th>Class</th>
-                <th>response</th>
+                <th style="text-align:center"> Sl.no </th>
+                <th style="text-align:center">Student Id</th>
+                <th style="text-align:center">Student Name </th>
+                <th style="text-align:center">Location</th>
+                <th style="text-align:center">Class</th>
+                <th style="text-align:center">Response</th>
             </tr>
 
                 <?php
@@ -186,14 +188,14 @@
                             <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['sfname']."</td>
                             <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['location']."</td>
                             <td onclick=\"window.location='particularStudPro.php?id=".$row["studentId"]."'\">".$row['class']."</td>
-                            <td>
+                            <td>" ?>
                                 <form action='' method = 'post'>
                                 <center>
-                                    <input type = 'button' value='Accept' name='Accept'>
-                                    <input type = 'button' value='Reject' name='Reject'> 
+                                    <input type = 'button' value='Accept' name='accept'>
+                                    <input type = 'button' value='Reject' name='reject'> 
                                 </center>                    
                                 </form>
-                            </td>";
+                            <?php "</td>";
                             
                             
                         }
@@ -206,26 +208,41 @@
 
                 <!-- on press button -->
                 <?php 
-                    $studId=$_SESSION['id'];
-                    $teachId =$_SESSION['teacherid'];
 
-                    if (isset($_POST["Accept"]))
-                    {
-                        $sql = "UPDATE  connectTeacher SET studentId = $studId , teacherId=$teachId, response='accept'";
-                        if ($conn->query($sql) === TRUE) {
-                            echo '<script>alert("Record updated successfully")</script>'; 
-                        
-                            // echo "Record updated successfully";
-                        } else {
-                            echo '<script>alert("Error updating record:")</script>'; 
-                            // echo "Error updating record: " . $conn->error;
-                        }
-                        
-                        $conn->close();
+                if (isset($_POST["accept"]))
+                {
+                    $sql = "UPDATE  connectTeacher SET  response='accept' where studentId  = '$particularStudentID' and teacherId= '$teachId' ";
+                    if ($conn->query($sql) === TRUE) {
+                        echo '<script>alert("Record updated successfully")</script>'; 
+                    } 
+                    else {
+                        echo '<script>alert("Error updating record:")</script>'; 
+                    }
+                    
+                    $conn->close();
 
-                        
-                    }         
-                ?>
+                    
+                }
+                if (isset($_POST["reject"]))
+                {
+                    
+                    $sql = "UPDATE  connectTeacher SET  response='reject' where studentId  = '$particularStudentID' and teacherId= '$teachId' ";
+                   
+                    if ($conn->query($sql) === TRUE) {
+                        echo '<script>alert("Record updated successfully")</script>'; 
+                    
+                        // echo "Record updated successfully";
+                    } 
+                    else {
+                        echo '<script>alert("Error updating record:")</script>'; 
+                        // echo "Error updating record: " . $conn->error;
+                    }
+                    
+                    $conn->close();
+
+                    
+                }         
+            ?>
 
         </table>
         
