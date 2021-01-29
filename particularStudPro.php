@@ -22,10 +22,6 @@
      die("Connection failed: " . $conn->connect_error);
      }
     //  $particularStudentID= $_SESSION['particularStudentID'];
-     
-     
-
-
 ?>
 
 <!DOCTYPE html>

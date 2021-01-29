@@ -173,11 +173,23 @@
 
             <!-- php code -->
             <div class="row" id="detail">
-                <?php         
-                                
-                    $query = "SELECT * FROM teacher where teacherId = $particularTeacherID ";
+                
+                    <?php
+                    echo $_SESSION['id'];       
+                               
+                    if($_SESSION['id'])
+                    {
+                    $query = "SELECT * FROM teacher  where teacherId = $particularTeacherID ";
+
+                    // $query1 = "SELECT * FROM  student ";
                     $data =mysqli_query($conn, $query);
+                    // $data1 =mysqli_query($conn, $query1);
                     $result = mysqli_fetch_assoc($data);
+
+                    // $result1 = mysqli_fetch_assoc($data1);
+                    // if($result1['studentId']!= $_SESSION['id']){
+                    //     echo" wrong user";
+                    // }
                     // echo "<h4>Teacher ID:</h4>".  $result['teacherId'] ;
                     // echo "<h4>Name : </h4>". $result['tfname'] . $result['tlname'];
                     // echo "<h4>Gender:</h4>". $result['gender'];
@@ -190,6 +202,7 @@
                     // echo "<h4>Medium</h4>". $result['medium'];
                     // echo "<h4>Language:</h4>". $result['language'];
                     // echo "<h4>Exprience</h4>". $result['exprience'];   
+                   if($result['tfname'] ){
                     echo "<div style='margin-left: 330px;'>"  ;
                     echo "<b style='font-size:15px'>Name :  </b>". $result['tfname']. " ". $result['tlname'] ."<br><br>";
                     echo "<b style='font-size:15px'>Gender  :  </b>". $result['gender']. "<br><br>";
@@ -204,8 +217,15 @@
                     echo "<b style='font-size:15px'>Exprience :  </b>". $result['exprience']."<br><br>";    
                     echo "</div>";     
                             
+                   }
+                   
 
+                }
+                else{
+                    echo 'NO user';
+                }
                 ?>
+                
             </div>
 
             <div class="row" >
@@ -237,8 +257,13 @@
                     $conn->close();
     
                     
-                }         
+                }  
+                      
             ?>
+            
+
+                
+                
 
 
         </div>
